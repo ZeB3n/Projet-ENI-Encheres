@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>ACCUEIL</h1>
-		<a href="<%=request.getContextPath()%>/ServletGestionConnexion"><button type="submit" formmethod="get">Connexion</button></a>
+		<a href="<%=request.getContextPath()%>/ServletConnexion"><button type="submit" formmethod="get">Connexion</button></a>
 </body>
 </html>
