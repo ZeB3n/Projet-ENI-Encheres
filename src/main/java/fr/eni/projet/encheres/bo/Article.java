@@ -13,7 +13,7 @@ public class Article {
 	private Utilisateur utilisateur;
 	private Categorie categorie;
 	private boolean vendu;
-
+	
 public  Article() {
 	}
 

@@ -152,6 +152,7 @@ public boolean isAdministrateur() {
 public void setAdministrateur(boolean administrateur) {
 	this.administrateur = administrateur;
 }
+
 @Override
 public String toString() {
 	return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
