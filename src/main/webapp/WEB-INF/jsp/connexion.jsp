@@ -8,11 +8,15 @@
 </head>
 <body>
 	<h1>CONNEXION</h1>
-	<br>
+	<form action="">
 	Identifiant : 
+	<input type="text" id="pseudo" id="email" name="pseudo" name="email">
 	<br>
 	Mot de passe : 
+	<input type="text" id="mot_de_passe" name="mot_de_passe">
+	<br>
 		<a href="<%=request.getContextPath()%>/ServletGestionConnexion"><button type="submit" formmethod="post">Connexion</button></a>
 		<a href="<%=request.getContextPath()%>/ServletInscription"><button type="submit" formmethod="get">Créer un compte</button></a>
+	</form>
 </body>
 </html>
