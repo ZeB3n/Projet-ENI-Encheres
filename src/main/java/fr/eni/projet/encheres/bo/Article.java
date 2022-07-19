@@ -14,7 +14,6 @@ public class Article {
 	private Categorie categorie;
 	private boolean vendu;
 	
-
 public  Article() {
 	}
 
