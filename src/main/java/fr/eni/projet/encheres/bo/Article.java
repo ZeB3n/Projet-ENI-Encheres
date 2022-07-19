@@ -13,7 +13,6 @@ public class Article {
 	private Utilisateur utilisateur;
 	private Categorie categorie;
 	private boolean vendu;
-	private int nb;
 
 public  Article() {
 	}
