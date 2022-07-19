@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Connexion</title>
 </head>
 <body>
-
+	<h1>CONNEXION</h1>
+		<a href="<%=request.getContextPath()%>/ServletGestionConnexion"><button type="submit" formmethod="post">Connexion</button></a>
+		<a href="<%=request.getContextPath()%>/ServletInscription"><button type="submit" formmethod="get">Créer un compte</button></a>
 </body>
 </html>
