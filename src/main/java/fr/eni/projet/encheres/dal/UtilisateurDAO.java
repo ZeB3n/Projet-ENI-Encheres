@@ -12,3 +12,4 @@ public interface UtilisateurDAO {
 		public void select(Utilisateur utilisateur) throws BusinessException;
 		
 }
+
