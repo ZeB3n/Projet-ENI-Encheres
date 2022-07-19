@@ -22,3 +22,4 @@ public class ServletInscription extends HttpServlet {
 	}
 
 }
+
