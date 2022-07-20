@@ -33,12 +33,12 @@ public Utilisateur() {
  * @param nom nom de l'utilisateur
  * @param prenom prenom de l'utilisateur
  * @param email email de l'utilisateur
- * @param rue
- * @param code_postal
- * @param ville
- * @param mot_de_passe
- * @param credit
- * @param administrateur
+ * @param rue rue de l'utilisateur
+ * @param code_postal code_postal de l'utilisateur
+ * @param ville ville de l'utilisateur
+ * @param mot_de_passe mot_de_passe de l'utilisateur
+ * @param credit credit de l'utilisateur
+ * @param administrateur administrateur de l'utilisateur
  */
 public Utilisateur(String nom, String prenom, String email, String rue, String code_postal, String ville,
 		String mot_de_passe, int credit, boolean administrateur) {
