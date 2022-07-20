@@ -13,6 +13,6 @@ public interface UtilisateurDAO {
 	 * @throws BusinessException
 	 * @throws SQLException 
 	 */
-	Utilisateur rechercher(String login, String mot_de_passe) throws SQLException;
+	Utilisateur rechercher(String login, String email, String mot_de_passe) throws SQLException;
 		
 }

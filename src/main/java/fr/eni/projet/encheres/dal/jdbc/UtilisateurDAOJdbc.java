@@ -15,10 +15,10 @@ import fr.eni.projet.encheres.dal.UtilisateurDAO;
 
 public class UtilisateurDAOJdbc implements UtilisateurDAO {
 	
-	private static final String SELECT_CONNEXION_UTILISATEUR="SELECT * FROM utilisateur WHERE login = ? AND mot_de_passe = ?";
+	private static final String SELECT_CONNEXION_UTILISATEUR="SELECT * FROM UTILISATEURS WHERE pseudo = '?' OR email = '?' AND mot_de_passe = '?'";
 	
 	@Override
-	public Utilisateur rechercher(String login, String mot_de_passe) throws SQLException {
+	public Utilisateur rechercher(String pseudo, String email, String mot_de_passe) throws SQLException {
 		Utilisateur utilisateur = null;
 		Connection cnx = null;
 		PreparedStatement pstmt = null;
@@ -28,13 +28,15 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO {
 		try {
 			
 			pstmt = cnx.prepareStatement(SELECT_CONNEXION_UTILISATEUR);
-			pstmt.setString(1, login);
-			pstmt.setString(2, mot_de_passe);
+			pstmt.setString(1, pseudo);
+			pstmt.setString(2, email);
+			pstmt.setString(3, mot_de_passe);
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
 				utilisateur = new Utilisateur();
-				utilisateur.setPseudo(rs.getString("login"));
+				utilisateur.setPseudo(rs.getString("pseudo"));
+				utilisateur.setEmail(rs.getString("email"));
 				if(rs.wasNull())
 				utilisateur.setMotDePasse("<<Non renseigné>>");
 				else
