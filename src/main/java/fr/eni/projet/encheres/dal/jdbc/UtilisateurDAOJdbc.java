@@ -1,10 +1,9 @@
 package fr.eni.projet.encheres.dal.jdbc;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-
 import fr.eni.projet.encheres.bo.Utilisateur;
 import fr.eni.projet.encheres.dal.ConnectionProvider;
 import fr.eni.projet.encheres.dal.UtilisateurDAO;
