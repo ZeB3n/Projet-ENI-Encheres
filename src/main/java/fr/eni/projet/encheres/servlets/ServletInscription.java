@@ -51,23 +51,32 @@ public class ServletInscription extends HttpServlet {
 	}
 
 	private void validationVille(String ville) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (ville != null && ville.trim().length() != 0) {
+			throw new Exception("Le champ ville doit être rempli");
+		}
 	}
 
+	// Certains pays ont une lettre dans leur code postal
 	private void validationCode_Postal(String code_postal) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (code_postal != null && code_postal.trim().length() != 0) {
+			throw new Exception("Le champ code postal doit être rempli");
+		}
 	}
 
 	private void validationRue(String rue) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (rue != null && rue.trim().length() != 0) {
+			throw new Exception("Le champ rue doit être rempli");
+		}
 	}
 
 	private void validationTelephone(String telephone) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (telephone != null && telephone.trim().length() != 0) {
+			if (telephone.length() == 10) {
+				throw new Exception("Le champ téléphone doit contenir 10 numéros");
+			}
+		} else {
+			throw new Exception("Le champ téléphone doit être rempli");
+		}
 	}
 
 	private void validationEmail(String email) throws Exception {
@@ -82,21 +91,21 @@ public class ServletInscription extends HttpServlet {
 	}
 
 	private void validationPrenom(String prenom) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (prenom != null && prenom.trim().length() != 0) {
+			throw new Exception("Le champ prénom doit être rempli");
+		}
 	}
 
 	private void validationNom(String nom) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (nom != null && nom.trim().length() != 0) {
+			throw new Exception("Le champ nom doit être rempli");
+		}
 	}
 
 	private void validationPseudo(String pseudo) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if (pseudo != null && pseudo.trim().length() != 0) {
+			throw new Exception("Le champ pseudo doit être rempli");
+		}
 	}
-	
-	
-
 }
 
