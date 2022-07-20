@@ -17,12 +17,12 @@
 	<br>
 	Mot de passe : 
 	<input type="password" id="mot_de_passe" name="mot_de_passe">
+	
 	<br>
 		<a href="<%=request.getContextPath()%>/ServletGestionConnexion"><button type="submit" formmethod="post">Connexion</button></a>
 		<br>
-		<a href="<%=request.getContextPath()%>/ServletInscription"><button type="submit" formmethod="get">Créer un compte</button></a>
 	</form>
-	
+		<a href="<%=request.getContextPath()%>/ServletInscription"><button type="submit" formmethod="get">Créer un compte</button></a>
 	<h2> ---- TEST ---- </h2>
 </body>
 <footer>
