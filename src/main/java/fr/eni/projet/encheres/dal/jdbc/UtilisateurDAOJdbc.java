@@ -15,7 +15,12 @@ import fr.eni.projet.encheres.dal.UtilisateurDAO;
 
 public class UtilisateurDAOJdbc implements UtilisateurDAO {
 	
+	// Requête SQL pour vérifier si les données rentrées par l'utilisateur lors de la connexion existent dans la BDD
 	private static final String SELECT_CONNEXION_UTILISATEUR="SELECT * FROM UTILISATEURS WHERE pseudo = '?' OR email = '?' AND mot_de_passe = '?'";
+	// Requête SQL pour vérifier si un pseudo existe déjà dans la BDD
+	private static final String SELECT_VERIF_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = '?'";
+	// Requête SQL pour vérifier si un email existe déjà dans la BDD
+	private static final String SELECT_VERIF_EMAIL="SELECT * FROM UTILISATEURS WHERE email = '?'";
 	
 	@Override
 	public Utilisateur rechercher(String pseudo, String email, String mot_de_passe) throws SQLException {
