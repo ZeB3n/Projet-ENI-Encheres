@@ -1,6 +1,15 @@
 package fr.eni.projet.encheres.bo;
 
-public class Utilisateur {
+import java.io.Serializable;
+
+/**
+ * javabean permettant d'instancier un objet de type Utilisateur
+ * @author Goulven
+ *
+ */
+public class Utilisateur implements Serializable {
+	// Attributs
+	private static final long serialVersionUID = 1L;
 	private int no_utilisateur;
 	private String pseudo;
 	private String nom;
@@ -14,11 +23,23 @@ public class Utilisateur {
 	private int credit;
 	private boolean administrateur;
 
+// Constructeurs
 public Utilisateur() {
 	
 }
 
-
+/**
+ * Méthode permettant d'instancier un objet de type utilisateur et d'en hydrater les attributs
+ * @param nom nom de l'utilisateur
+ * @param prenom prenom de l'utilisateur
+ * @param email email de l'utilisateur
+ * @param rue
+ * @param code_postal
+ * @param ville
+ * @param mot_de_passe
+ * @param credit
+ * @param administrateur
+ */
 public Utilisateur(String nom, String prenom, String email, String rue, String code_postal, String ville,
 		String mot_de_passe, int credit, boolean administrateur) {
 	super();
@@ -33,7 +54,15 @@ public Utilisateur(String nom, String prenom, String email, String rue, String c
 	this.administrateur = administrateur;
 }
 
+@Override
+public String toString() {
+	return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
+			+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", code_postal="
+			+ code_postal + ", ville=" + ville + ", mot_de_passe=" + mot_de_passe + ", credit=" + credit
+			+ ", administrateur=" + administrateur + "]";
+}
 
+// Getters-Setters
 public int getNo_utilisateur() {
 	return no_utilisateur;
 }
@@ -153,13 +182,5 @@ public void setAdministrateur(boolean administrateur) {
 	this.administrateur = administrateur;
 }
 
-@Override
-public String toString() {
-	return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-			+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", code_postal="
-			+ code_postal + ", ville=" + ville + ", mot_de_passe=" + mot_de_passe + ", credit=" + credit
-			+ ", administrateur=" + administrateur + "]";
-	
-}
 }
 

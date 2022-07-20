@@ -1,6 +1,7 @@
 package fr.eni.projet.encheres.dal;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -30,5 +31,14 @@ public class ConnectionProvider {
 	{
 		return ConnectionProvider.dataSource.getConnection();     
 	}
+	
+	public static void seDeconnecter(PreparedStatement pstmt, Connection cnx) throws SQLException {
+		if (pstmt != null)
+				pstmt.close();
+		if (cnx != null)
+				cnx.close();
+	}
 }
+
+
 
