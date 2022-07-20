@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Connexion</title>
 </head>
+<header>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+</header>
 <body>
 	<h1>CONNEXION</h1>
 	<form action="">
@@ -22,4 +25,7 @@
 	
 	<h2> ---- TEST ---- </h2>
 </body>
+<footer>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+</footer>
 </html>
