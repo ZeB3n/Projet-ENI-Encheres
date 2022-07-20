@@ -18,37 +18,47 @@
                 
                 <label for="pseudo"> Pseudo : <span class="requis">*</span></label>
                 <input type="text" id="pseudo" name="pseudo" value="" size="20" maxlength="30" />
+                <span class="erreur">${erreurs['pseudo']}</span>
                 
                 <label for="nom"> Nom : <span class="requis">*</span></label>
                 <input type="text" id="nom" name="nom" value="" size="20" maxlength="30" />
+                <span class="erreur">${erreurs['nom']}</span>
                 <br />
                 
                 <label for="prenom"> Prénom : <span class="requis">*</span></label>
                 <input type="text" id="prenom" name="prenom" value="" size="20" maxlength="30" />
+                <span class="erreur">${erreurs['prenom']}</span>
 
                 <label for="email"> Email <span class="requis">*</span></label>
                 <input type="text" id="email" name="email" value="" size="20" maxlength="50" />
+                <span class="erreur">${erreurs['email']}</span>
                 <br />
                 
                 <label for="telephone"> Téléphone : </label>
                 <input type="text" id="telephone" name="telephone" value="" size="20" maxlength="10" />
+                <span class="erreur">${erreurs['telephone']}</span>
 
                 <label for="rue"> Rue <span class="requis">*</span></label>
                 <input type="text" id="rue" name="rue" value="" size="20" maxlength="30" />
+                <span class="erreur">${erreurs['rue']}</span>
                 <br />
                 
                 <label for="code_postal"> Code Postal : <span class="requis">*</span></label>
                 <input type="text" id="code_postal" name="code_postal" value="" size="20" maxlength="30" />
+                <span class="erreur">${erreurs['code_postal']}</span>
 
                 <label for="ville"> Ville : <span class="requis">*</span></label>
                 <input type="text" id="ville" name="ville" value="" size="20" maxlength="30" />
+                <span class="erreur">${erreurs['ville']}</span>
                 <br />
 
                 <label for="motdepasse"> Mot de passe : <span class="requis">*</span></label>
                 <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="20" maxlength="20" />
+                <span class="erreur">${erreurs['mot_de_passe']}</span>
 
                 <label for="confirmation"> Confirmation : <span class="requis">*</span></label>
                 <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" />
+                <span class="erreur">${erreurs['confirmation']}</span>
                 <br />
 
                 <input type="submit" value="Créer" class="sansLabel" />
