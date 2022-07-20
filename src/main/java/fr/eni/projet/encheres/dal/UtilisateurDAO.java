@@ -1,5 +1,7 @@
 package fr.eni.projet.encheres.dal;
 
+import java.util.List;
+
 import fr.eni.projet.encheres.BusinessException;
 import fr.eni.projet.encheres.bo.Utilisateur;
 
@@ -9,7 +11,6 @@ public interface UtilisateurDAO {
 	 * @param utilisateur
 	 * @throws BusinessException
 	 */
-		public void select(Utilisateur utilisateur) throws BusinessException;
+	public List<Utilisateur> select() throws BusinessException;
 		
 }
-
