@@ -23,8 +23,8 @@ public class UtilisateurManager {
 		return erreurs;
 	}
 
-	public static Utilisateur insererUtilisateur ( HttpServletRequest request) {
-		Utilisateur utilisateur = new Utilisateur();
+	public Utilisateur insererUtilisateur ( HttpServletRequest request) {
+		/* Utilisateur utilisateur = new Utilisateur();
 		utilisateur.setPseudo(request.getParameter("pseudo"));
 		utilisateur.setNom(request.getParameter("nom"));
 		utilisateur.setPrenom(request.getParameter("prenom"));
@@ -33,12 +33,24 @@ public class UtilisateurManager {
 		utilisateur.setRue(request.getParameter("rue"));
 		utilisateur.setCode_postal(request.getParameter("code_postal"));
 		utilisateur.setVille(request.getParameter("ville"));
-		utilisateur.setMotDePasse(request.getParameter("mot_de_passe"));
+		utilisateur.setMotDePasse(request.getParameter("mot_de_passe")); */
 		
+		String pseudo = getValeurChamp(request, "pseudo");
+		String nom = getValeurChamp(request, "nom");
+		String prenom = getValeurChamp(request, "prenom");
+		String email = getValeurChamp(request, "email");
+		String telephone = getValeurChamp(request, "telephone");
+		String rue = getValeurChamp(request, "rue");
+		String code_postal = getValeurChamp(request, "code_postal");
+		String ville = getValeurChamp(request, "ville");
+		String mot_de_passe = getValeurChamp(request, "mot_de_passe");
+		String confirmation = getValeurChamp(request, "confirmation");
+		
+		Utilisateur utilisateur = new Utilisateur();
 		
 		/* Validation du champ Pseudo */
 		try {
-			validationPseudo("pseudo");
+			validationPseudo(pseudo);
 		} catch (Exception e) {
 			setErreur("pseudo", e.getMessage());
 		}
@@ -46,7 +58,7 @@ public class UtilisateurManager {
 		
 			/* Validation du champ Nom */
 		try {
-			validationNom("nom");
+			validationNom(nom);
 		} catch (Exception e) {
 			setErreur("nom", e.getMessage());
 		}
@@ -54,7 +66,7 @@ public class UtilisateurManager {
 		
 			/* Validation du champ Prénom */
 		try {
-			validationPrenom("prenom");
+			validationPrenom(prenom);
 		} catch (Exception e) {
 			setErreur("prenom", e.getMessage());
 		}
@@ -62,7 +74,7 @@ public class UtilisateurManager {
 		
 			/* Validation du champ Email */
 		try {
-			validationEmail("email");
+			validationEmail(email);
 		} catch (Exception e) {
 			setErreur("email", e.getMessage());
 		}
@@ -70,7 +82,7 @@ public class UtilisateurManager {
 		
 			/* Validation du champ Téléphone */
 		try {
-			validationTelephone("telephone");
+			validationTelephone(telephone);
 		} catch (Exception e) {
 			setErreur("telephone", e.getMessage());
 		}
@@ -78,7 +90,7 @@ public class UtilisateurManager {
 			
 			/* Validation du champ Rue */
 		try {
-			validationRue("rue");
+			validationRue(rue);
 		} catch (Exception e) {
 			setErreur("rue", e.getMessage());
 		}
@@ -86,7 +98,7 @@ public class UtilisateurManager {
 		
 			/* Validation du champ Code Postal */
 		try {
-			validationCode_Postal("code_postal");
+			validationCode_Postal(code_postal);
 		} catch (Exception e) {
 			setErreur("code_postal", e.getMessage());
 		}
@@ -94,7 +106,7 @@ public class UtilisateurManager {
 		
 			/* Validation du champ Ville */
 		try {
-			validationVille("ville");
+			validationVille(ville);
 		} catch (Exception e) {
 			setErreur("ville", e.getMessage());
 		}
@@ -102,7 +114,7 @@ public class UtilisateurManager {
 		
 			/* Validation des champs Mot de passe et Confirmation */
 		try {
-			validationMot_De_Passe("mot_de_passe", "confirmation");
+			validationMot_De_Passe(mot_de_passe, confirmation);
 		} catch (Exception e) {
 			setErreur("mot_de_passe", e.getMessage());
 			setErreur("confirmation", null);
