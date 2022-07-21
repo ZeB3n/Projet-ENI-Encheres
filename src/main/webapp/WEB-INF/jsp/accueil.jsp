@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 </header>
 <body>
-	<h1>ACCUEIL</h1>
+	<h1>ACCUEIL DE ENI-ENCHERES</h1>
 		<a href="<%=request.getContextPath()%>/ServletConnexion"><button type="submit" formmethod="get">Connexion</button></a>
 </body>
 <footer>
