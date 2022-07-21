@@ -30,7 +30,7 @@
                 <input type="text" id="prenom" name="prenom" value="<c:out value="${param.prenom}"/>" size="20" maxlength="30" />
                 <span class="erreur">${erreurs['prenom']}</span>
 
-                <label for="email"> Email <span class="requis">*</span></label>
+                <label for="email"> Email : <span class="requis">*</span></label>
                 <input type="email" id="email" name="email" value="<c:out value="${param.email}"/>" size="20" maxlength="50" />
                 <span class="erreur">${erreurs['email']}</span>
                 <br />
