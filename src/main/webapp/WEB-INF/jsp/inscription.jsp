@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Inscription</title>
-<link type="text/css" rel="stylesheet" href="/css/form.css" />
+<link type="text/css" rel="stylesheet" href="WEB-INF/css/form.css" />
 </head>
 <header>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -20,7 +20,7 @@
                 
                 <label for="pseudo"> Pseudo : <span class="requis">*</span></label>
                 <input type="text" id="pseudo" name="pseudo" value="<c:out value="${param.pseudo}"/>" size="20" maxlength="30"
-                pattern="^[a-z0-9_-]{3,15}$" required />
+                 />
                 <span class="erreur">${erreurs['pseudo']}</span>
                 
                 <label for="nom"> Nom : <span class="requis">*</span></label>
