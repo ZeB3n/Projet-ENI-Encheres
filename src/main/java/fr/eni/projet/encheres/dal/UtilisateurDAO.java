@@ -8,9 +8,8 @@ import fr.eni.projet.encheres.bo.Utilisateur;
 
 public interface UtilisateurDAO {
 	/**
-	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet businessException.
+	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet SQLException.
 	 * @param utilisateur
-	 * @throws BusinessException
 	 * @throws SQLException 
 	 */
 	Utilisateur rechercher(String login, String email, String mot_de_passe) throws SQLException;
