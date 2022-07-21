@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
  
 <div
-  style="background: #377cbe; text-align: center; padding: 5px; margin-top: 10px; border-radius: 5px">
+  style="background: #0568CD; text-align: center; padding: 5px; margin-top: 10px; border-radius: 5px">
  
   @Copyright ENI-Enchères - Juillet 2022
  

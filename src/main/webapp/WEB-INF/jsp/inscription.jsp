@@ -19,7 +19,8 @@
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
                 
                 <label for="pseudo"> Pseudo : <span class="requis">*</span></label>
-                <input type="text" id="pseudo" name="pseudo" value="<c:out value="${param.pseudo}"/>" size="20" maxlength="30" />
+                <input type="text" id="pseudo" name="pseudo" value="<c:out value="${param.pseudo}"/>" size="20" maxlength="30"
+                pattern="^[a-z0-9_-]{3,15}$" required />
                 <span class="erreur">${erreurs['pseudo']}</span>
                 
                 <label for="nom"> Nom : <span class="requis">*</span></label>
@@ -32,12 +33,14 @@
                 <span class="erreur">${erreurs['prenom']}</span>
 
                 <label for="email"> Email : <span class="requis">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${param.email}"/>" size="20" maxlength="50" />
+                <input type="email" id="email" name="email" value="<c:out value="${param.email}"/>" size="20" maxlength="50" 
+                pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" required/>
                 <span class="erreur">${erreurs['email']}</span>
                 <br />
                 
                 <label for="telephone"> Téléphone : </label>
-                <input type="text" id="telephone" name="telephone" value="<c:out value="${param.telephone}"/>" size="20" maxlength="10" />
+                <input type="text" id="telephone" name="telephone" value="<c:out value="${param.telephone}"/>" size="20" maxlength="10"
+                pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" required />
                 <span class="erreur">${erreurs['telephone']}</span>
 
                 <label for="rue"> Rue : <span class="requis">*</span></label>
@@ -60,7 +63,8 @@
                 <span class="erreur">${erreurs['mot_de_passe']}</span>
 
                 <label for="confirmation"> Confirmation : <span class="requis">*</span></label>
-                <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" />
+                <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" 
+                pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" required />
                 <span class="erreur">${erreurs['confirmation']}</span>
                 <br />
 
@@ -73,20 +77,6 @@
 		<a href="<%=request.getContextPath()%>/ServletGestionConnexion"><button type="submit" formmethod="post">Créer un compte</button></a>
 		<a href="<%=request.getContextPath()%>/ServletAccueil"><button type="submit">Annuler</button></a>
 		
-		<h2>TEST</h2>
-		---------------------------------------------------------------------------------------------
-		<div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
-</div>
-pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" required
-<div>
-    <label for="pass">Password (8 characters minimum):</label>
-    <input type="password" id="pass" name="password"
-           minlength="8" pattern="(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$)" required>
-</div>
-
-<input type="submit" value="Sign in">
 </body>
 <footer>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
