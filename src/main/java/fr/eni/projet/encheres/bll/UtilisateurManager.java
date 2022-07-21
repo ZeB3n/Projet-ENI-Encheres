@@ -72,6 +72,16 @@ public class UtilisateurManager {
 		} catch (Exception e) {
 			erreurs.put("mot_de_passe", e.getMessage());
 		}
+		/* Résulat global de validation */
+		if (erreurs.isEmpty()) {
+			resultat = "Inscription réussie.";
+		} else {
+			resultat = "Vous êtes nul, pas foutu de remplir 8 cases! Grosse merde!!";
+		}
 		
+		/* Stockage du résultat et des messages */
+		request.setAttribute("erreurs", erreurs);
+		request.setAttribute("resultat", resultat);
 	}
+		
 }

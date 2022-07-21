@@ -13,7 +13,7 @@ import fr.eni.projet.encheres.bo.Utilisateur;
 import fr.eni.projet.encheres.dal.ConnectionProvider;
 import fr.eni.projet.encheres.dal.UtilisateurDAO;
 
-public class UtilisateurDAOJdbc implements UtilisateurDAO {
+public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	
 	// Requête SQL pour vérifier si les données rentrées par l'utilisateur lors de la connexion existent dans la BDD
 	private static final String SELECT_CONNEXION_UTILISATEUR="SELECT * FROM UTILISATEURS WHERE pseudo = '?' OR email = '?' AND mot_de_passe = '?'";

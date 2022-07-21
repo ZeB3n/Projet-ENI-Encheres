@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Inscription</title>
+<link type="text/css" rel="stylesheet" href="/css/form.css" />
 </head>
 <header>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -39,7 +40,7 @@
                 <input type="text" id="telephone" name="telephone" value="<c:out value="${param.telephone}"/>" size="20" maxlength="10" />
                 <span class="erreur">${erreurs['telephone']}</span>
 
-                <label for="rue"> Rue <span class="requis">*</span></label>
+                <label for="rue"> Rue : <span class="requis">*</span></label>
                 <input type="text" id="rue" name="rue" value="<c:out value="${param.rue}"/>" size="20" maxlength="30" />
                 <span class="erreur">${erreurs['rue']}</span>
                 <br />
@@ -54,7 +55,8 @@
                 <br />
 
                 <label for="motdepasse"> Mot de passe : <span class="requis">*</span></label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="20" maxlength="20" />
+                <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="20" maxlength="20"
+                pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" required />
                 <span class="erreur">${erreurs['mot_de_passe']}</span>
 
                 <label for="confirmation"> Confirmation : <span class="requis">*</span></label>
@@ -70,6 +72,21 @@
         </form>
 		<a href="<%=request.getContextPath()%>/ServletGestionConnexion"><button type="submit" formmethod="post">Créer un compte</button></a>
 		<a href="<%=request.getContextPath()%>/ServletAccueil"><button type="submit">Annuler</button></a>
+		
+		<h2>TEST</h2>
+		---------------------------------------------------------------------------------------------
+		<div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+</div>
+pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" required
+<div>
+    <label for="pass">Password (8 characters minimum):</label>
+    <input type="password" id="pass" name="password"
+           minlength="8" pattern="(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$)" required>
+</div>
+
+<input type="submit" value="Sign in">
 </body>
 <footer>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
