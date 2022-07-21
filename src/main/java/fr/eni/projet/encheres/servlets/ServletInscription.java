@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.eni.projet.encheres.bll.UtilisateurManager;
+import fr.eni.projet.encheres.bo.Utilisateur;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,21 +23,25 @@ public class ServletInscription extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String resultat;
+		Utilisateur utilisateur = new Utilisateur();
+		
 		Map<String, String> erreurs = new HashMap<String, String>();
 		/* Traitement des données du formulaire */
 		
 		/* Récupération des champs du formulaire */
-		String pseudo = request.getParameter("pseudo");
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String email = request.getParameter("email");
-		String telephone = request.getParameter("telephone");
-		String rue = request.getParameter("rue");
-		String code_postal = request.getParameter("code_postal");
-		String ville = request.getParameter("ville");
-		String mot_de_passe = request.getParameter("mot_de_passe");
-		String confirmation = request.getParameter("confirmation");
+		utilisateur.setPseudo(request.getParameter("pseudo"));
+		utilisateur.setNom(request.getParameter("nom"));
+		utilisateur.setPrenom(request.getParameter("prenom"));
+		utilisateur.setEmail(request.getParameter("email"));
+		utilisateur.setTelephone(request.getParameter("telephone"));
+		utilisateur.setRue(request.getParameter("rue"));
+		utilisateur.setCode_postal(request.getParameter("code_postal"));
+		utilisateur.setVille(request.getParameter("ville"));
+		utilisateur.setMotDePasse(request.getParameter("mot_de_passe"));
 		
+		// Appel de la BLL pour contrôle règle de gestion
+		
+		UtilisateurManager.insererUtilisateur(utilisateur);
 		/* Validation du champ Pseudo */
 		try {
 			validationPseudo(pseudo);

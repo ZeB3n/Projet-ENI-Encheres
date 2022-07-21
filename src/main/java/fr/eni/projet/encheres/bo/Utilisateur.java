@@ -42,16 +42,15 @@ public Utilisateur() {
  */
 public Utilisateur(String nom, String prenom, String email, String rue, String code_postal, String ville,
 		String mot_de_passe, int credit, boolean administrateur) {
-	super();
-	this.nom = nom;
-	this.prenom = prenom;
-	this.email = email;
-	this.rue = rue;
-	this.code_postal = code_postal;
-	this.ville = ville;
-	this.mot_de_passe = mot_de_passe;
-	this.credit = credit;
-	this.administrateur = administrateur;
+	setNom(nom);
+	setPrenom(prenom);
+	setEmail(email);
+	setRue(rue);
+	setCode_postal(code_postal);
+	setVille(ville);
+	setMotDePasse(mot_de_passe);
+	setCredit(credit);
+	setAdministrateur(administrateur);
 }
 
 @Override

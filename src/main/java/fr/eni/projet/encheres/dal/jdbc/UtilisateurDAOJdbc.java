@@ -42,13 +42,16 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO {
 				utilisateur = new Utilisateur();
 				utilisateur.setPseudo(rs.getString("pseudo"));
 				utilisateur.setEmail(rs.getString("email"));
+				/* A effectué en cas de non-nullité dans la base de donnée */
+				/* rs.getString("mot_de_passe");
 				if(rs.wasNull())
 				utilisateur.setMotDePasse("<<Non renseigné>>");
-				else
+				else */
 				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
 			}
 			
 		} catch (SQLException e) {
+			// TODO : à faire (lever la DALException et propager le "e")
 			e.printStackTrace();
 		} finally {
 			ConnectionProvider.seDeconnecter(pstmt, cnx);
