@@ -30,6 +30,7 @@ public Utilisateur() {
 
 /**
  * Méthode permettant d'instancier un objet de type utilisateur et d'en hydrater les attributs
+ * @param pseudo pseudo de l'utilisateur
  * @param nom nom de l'utilisateur
  * @param prenom prenom de l'utilisateur
  * @param email email de l'utilisateur
@@ -40,8 +41,9 @@ public Utilisateur() {
  * @param credit credit de l'utilisateur
  * @param administrateur administrateur de l'utilisateur
  */
-public Utilisateur(String nom, String prenom, String email, String rue, String code_postal, String ville,
+public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, String code_postal, String ville,
 		String mot_de_passe, int credit, boolean administrateur) {
+	setPseudo(pseudo);
 	setNom(nom);
 	setPrenom(prenom);
 	setEmail(email);
