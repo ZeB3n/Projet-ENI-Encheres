@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+
+  <servlet>
+    <servlet-name>ServletAccueil</servlet-name>
+    <servlet-class>fr.eni.projet.encheres.servlets.ServletAccueil</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletConnexion</servlet-name>
+    <servlet-class>fr.eni.projet.encheres.servlets.ServletConnexion</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletInscription</servlet-name>
+    <servlet-class>fr.eni.projet.encheres.servlets.ServletInscription</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletGestionConnexion</servlet-name>
+    <servlet-class>fr.eni.projet.encheres.servlets.ServletGestionConnexion</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ServletAccueil</servlet-name>
+    <url-pattern>/ServletAccueil</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletConnexion</servlet-name>
+    <url-pattern>/ServletConnexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletInscription</servlet-name>
+    <url-pattern>/ServletInscription</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletGestionConnexion</servlet-name>
+    <url-pattern>/ServletGestionConnexion</url-pattern>
+  </servlet-mapping>
+
+</web-app>

@@ -125,7 +125,7 @@ public class UtilisateurManager {
 		if (erreurs.isEmpty()) {
 			resultat = "Inscription réussie.";
 		} else {
-			resultat = "Vous êtes nul, pas foutu de remplir 8 cases! Grosse merde!!";
+			resultat = "Vous êtes nul, pas foutu de remplir 10 cases! Grosse merde!!";
 		}
 		
 		return utilisateur;

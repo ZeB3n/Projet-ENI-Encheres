@@ -8,6 +8,7 @@ import java.io.Serializable;
  *
  */
 public class Utilisateur implements Serializable {
+	
 	// Attributs
 	private static final long serialVersionUID = 1L;
 	private int no_utilisateur;
