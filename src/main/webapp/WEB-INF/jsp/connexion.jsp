@@ -5,8 +5,11 @@
     <head>
         <meta charset="utf-8" />
         <title>Connexion</title>
-        <link type="text/css" rel="stylesheet" href="form.css" />
+        <link type="text/css" rel="stylesheet" href="css/form.css" />        
     </head>
+<header>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+</header>
     <body>
         <form method="post" action="ServletConnexion">
             <fieldset>
@@ -18,8 +21,8 @@
                 <span class="erreur">${form.erreurs['email']}</span>
 				<br />
 
-                <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" />
+                <label for="motDePasse">Mot de passe <span class="requis">*</span></label>
+                <input type="password" id="motDePasse" name="motDePasse" value="" size="20" maxlength="20" />
                 <span class="erreur">${form.erreurs['motdepasse']}</span>
 				<br />
 
@@ -36,4 +39,7 @@
             </fieldset>
         </form>
     </body>
+<footer>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+</footer>
 </html>

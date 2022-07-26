@@ -5,8 +5,11 @@
     <head>
         <meta charset="utf-8" />
         <title>Inscription</title>
-        <link type="text/css" rel="stylesheet" href="form.css" />
+        <link type="text/css" rel="stylesheet" href="css/form.css" />
     </head>
+	    <header>
+		<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+		</header>
     <body>
         <form method="post" action="ServletInscription">
             <fieldset>
@@ -66,4 +69,7 @@
             </fieldset>
         </form>
     </body>
+	    <footer>
+		<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+		</footer>
 </html>

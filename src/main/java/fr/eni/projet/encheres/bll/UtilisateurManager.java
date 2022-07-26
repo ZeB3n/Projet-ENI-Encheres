@@ -119,7 +119,7 @@ public class UtilisateurManager {
         try {
             validationMotDePasse( motDePasse );
         } catch ( Exception e ) {
-            setErreur( "motdepasse", e.getMessage() );
+            setErreur( "motDePasse", e.getMessage() );
         }
         utilisateur.setMotDePasse( motDePasse );
 
