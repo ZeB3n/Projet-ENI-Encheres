@@ -13,7 +13,7 @@
 </header>
 <body>
 	<h1>INSCRIPTION</h1>
-	<form method="post" action="<%=request.getContextPath()%>/ServletGestionConnexion">
+	<form method="post" action="${pageContext.request.contextPath}/ServletGestionConnexion">
             <fieldset>
                 <legend>Inscription</legend>
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
@@ -74,7 +74,7 @@
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
             </fieldset>
         </form>
-		<a href="<%=request.getContextPath()%>/ServletAccueil"><button type="submit">Annuler</button></a>
+		<a href="${pageContext.request.contextPath}/ServletAccueil"><button type="submit">Annuler</button></a>
 		
 </body>
 <footer>

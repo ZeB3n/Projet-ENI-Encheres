@@ -14,12 +14,12 @@
 <body>
 	<h1>CONNEXION</h1>
 	
-	<form method="post" action="<%=request.getContextPath()%>/ServletGestionConnexion">
+	<form method="post" action="${pageContext.request.contextPath}/ServletGestionConnexion">
             <fieldset>
                 <legend>Connexion</legend>
 	                <p>Vous pouvez vous connecter via ce formulaire.</p>
 	
-	                <label for="nom">Identifiant : <span class="requis">*</span></label>
+	                <label for="email">Identifiant : <span class="requis">*</span></label>
 	                <input type="email" id="email" name="email" value="<c:out value="${utilisateur.email}"/>" size="20" maxlength="60" />
 	                <span class="erreur">${form.erreurs['email']}</span>
 					<br />
@@ -41,7 +41,7 @@
                 	</c:if>
             </fieldset>
         </form>
-        <a href="<%=request.getContextPath()%>/ServletInscription"><button type="submit" formmethod="get">Créer un compte</button></a>
+        <a href="${pageContext.request.contextPath}/ServletInscription"><button type="submit" formmethod="get">Créer un compte</button></a>
 </body>
 <footer>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
