@@ -25,8 +25,11 @@
                 <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" />
                 <span class="erreur">${form.erreurs['mot_de_passe']}</span>
 				<br />
-
+				<div>
                 <input type="submit" value="Connexion" class="sansLabel" />
+            	<a href="ServletInscription"> <input type="button" class="boutonForm" value="Créer un compte"> </a>
+            	</div>
+       			
 
 
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>

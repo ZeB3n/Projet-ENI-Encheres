@@ -57,6 +57,7 @@
                 <span class="erreur">${form.erreurs['confirmation']}</span>
 <br>
                 <input type="submit" value="Inscription" class="sansLabel" />
+                <a href="ServletAccueil"> <input type="button" name="btAnnuler" value="Annuler" class="boutonForm" title="Annuler" /> </a>
                 <br />
 
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
