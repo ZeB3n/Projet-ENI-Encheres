@@ -26,9 +26,9 @@ public class UtilisateurManager {
         String email = getValeurChamp( request, "email" );
 		String telephone = getValeurChamp(request, "telephone");
 		String rue = getValeurChamp(request, "rue");
-		String codePostal = getValeurChamp(request, "codePostal");
+		String code_postal = getValeurChamp(request, "code_postal");
 		String ville = getValeurChamp(request, "ville");
-        String motDePasse = getValeurChamp( request, "motDePasse" );
+        String mot_de_passe = getValeurChamp( request, "mot_de_passe" );
         String confirmation = getValeurChamp( request, "confirmation" );
 
         Utilisateur utilisateur = new Utilisateur();
@@ -76,11 +76,11 @@ public class UtilisateurManager {
 		utilisateur.setRue( rue );
 		
 		try {
-			validationCodePostal( codePostal );
+			validationCodePostal( code_postal );
 		} catch (Exception e) {
-			setErreur("codePostal", e.getMessage());
+			setErreur("code_postal", e.getMessage());
 		}
-		utilisateur.setCodePostal( codePostal );
+		utilisateur.setCodePostal( code_postal );
 		
 		try {
 			validationVille(ville);
@@ -90,23 +90,23 @@ public class UtilisateurManager {
 		utilisateur.setVille( ville );
 		
         try {
-            validationConfirmation( motDePasse, confirmation );
+            validationConfirmation( mot_de_passe, confirmation );
         } catch ( Exception e ) {
-            setErreur( "motDePasse", e.getMessage() );
+            setErreur( "mot_de_passe", e.getMessage() );
             setErreur( "confirmation", null );
         }
         utilisateur.setMotDePasse( "" );
-
+        
         return utilisateur;
     }
     
     public Utilisateur connecterUtilisateur( HttpServletRequest request ) {
         /* Récupération des champs du formulaire */
         String email = getValeurChamp( request, "email" );
-        String motDePasse = getValeurChamp( request, "motDePasse" );
-    
+        String mot_de_passe = getValeurChamp( request, "mot_de_passe" );
+        
         Utilisateur utilisateur = new Utilisateur();
-
+        
         /* Validation du champ email. */
         try {
             validationEmail( email );
@@ -114,15 +114,15 @@ public class UtilisateurManager {
             setErreur( "email", e.getMessage() );
         }
         utilisateur.setEmail( email );
-
+        
         /* Validation du champ mot de passe. */
         try {
-            validationMotDePasse( motDePasse );
+            validationMotDePasse( mot_de_passe );
         } catch ( Exception e ) {
-            setErreur( "motDePasse", e.getMessage() );
+            setErreur( "mot_de_passe", e.getMessage() );
         }
-        utilisateur.setMotDePasse( motDePasse );
-
+        utilisateur.setMotDePasse( mot_de_passe );
+        
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty() ) {
             resultat = "Succès de la connexion.";
@@ -195,9 +195,9 @@ public class UtilisateurManager {
 		}
 	}
     
-	private static void validationCodePostal(String codePostal) throws Exception {
-		if (codePostal != null ) {
-			if (codePostal.length() > 10 ){
+	private static void validationCodePostal(String code_postal) throws Exception {
+		if (code_postal != null ) {
+			if (code_postal.length() > 10 ){
 				throw new Exception ( "Le code postal doit contenir moins de 10 caractères." );
 			}
 		} else {
@@ -227,9 +227,9 @@ public class UtilisateurManager {
         }
     }
     
-    private void validationMotDePasse( String motDePasse ) throws Exception {
-        if ( motDePasse != null ) {
-            if ( motDePasse.length() < 3 ) {
+    private void validationMotDePasse( String mot_de_passe ) throws Exception {
+        if ( mot_de_passe != null ) {
+            if ( mot_de_passe.length() < 3 ) {
                 throw new Exception( "Le mot de passe doit contenir au moins 3 caractères." );
             }
         } else {

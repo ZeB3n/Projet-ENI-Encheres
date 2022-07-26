@@ -17,43 +17,43 @@
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
 				
 				<label for="pseudo"> Pseudo : <span class="requis">*</span></label>
-                <input type="text" id="pseudo" name="pseudo" value="<c:out value="${utilisateur.pseudo}"/>" size="20" maxlength="30"/>
+                <input type="text" id="pseudo" name="pseudo" value="<c:out value="${utilisateur.pseudo}"/>" size="30" maxlength="30"/>
                 <span class="erreur">${form.erreurs['pseudo']}</span>
 <br> 
 				<label for="nom"> Nom : <span class="requis">*</span></label>
-                <input type="text" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>" size="20" maxlength="30" />
+                <input type="text" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>" size="30" maxlength="30" />
                 <span class="erreur">${form.erreurs['nom']}</span>
 <br>
                 <label for="prenom"> Prénom : <span class="requis">*</span></label>
-                <input type="text" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>" size="20" maxlength="30" />
+                <input type="text" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>" size="30" maxlength="30" />
                 <span class="erreur">${form.erreurs['prenom']}</span>
 <br>
                 <label for="email"> Adresse email : <span class="requis">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${utilisateur.email}"/>" size="20" maxlength="60" />
+                <input type="email" id="email" name="email" value="<c:out value="${utilisateur.email}"/>" size="30" maxlength="50" />
                 <span class="erreur">${form.erreurs['email']}</span>
 <br>                
                 <label for="telephone"> Téléphone : </label>
-                <input type="text" id="telephone" name="telephone" value="<c:out value="${utilisateur.telephone}"/>" size="20" maxlength="10" />
+                <input type="text" id="telephone" name="telephone" value="<c:out value="${utilisateur.telephone}"/>" size="30" maxlength="10" />
                 <span class="erreur">${form.erreurs['telephone']}</span>
 <br>
                 <label for="rue"> Rue : <span class="requis">*</span></label>
-                <input type="text" id="rue" name="rue" value="<c:out value="${utilisateur.rue}"/>" size="20" maxlength="30" />
+                <input type="text" id="rue" name="rue" value="<c:out value="${utilisateur.rue}"/>" size="30" maxlength="30" />
                 <span class="erreur">${form.erreurs['rue']}</span>
 <br>                
-                <label for="codePostal"> Code Postal : <span class="requis">*</span></label>
-                <input type="text" id="codePostal" name="codePostal" value="<c:out value="${utilisateur.codePostal}"/>" size="20" maxlength="30" />
-                <span class="erreur">${form.erreurs['codePostal']}</span>
+                <label for="code_postal"> Code Postal : <span class="requis">*</span></label>
+                <input type="text" id="code_postal" name="code_postal" value="<c:out value="${utilisateur.codePostal}"/>" size="30" maxlength="10" />
+                <span class="erreur">${form.erreurs['code_postal']}</span>
 <br>
                 <label for="ville"> Ville : <span class="requis">*</span></label>
-                <input type="text" id="ville" name="ville" value="<c:out value="${utilisateur.ville}"/>" size="20" maxlength="30" />
+                <input type="text" id="ville" name="ville" value="<c:out value="${utilisateur.ville}"/>" size="30" maxlength="30" />
                 <span class="erreur">${form.erreurs['ville']}</span>
 <br>
-                <label for="motDePasse"> Mot de passe : <span class="requis">*</span></label>
-                <input type="password" id="motDePasse" name="motDePasse" value="" size="20" maxlength="20" />
-                <span class="erreur">${form.erreurs['motDePasse']}</span>
+                <label for="mot_de_passe"> Mot de passe : <span class="requis">*</span></label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" />
+                <span class="erreur">${form.erreurs['mot_de_passe']}</span>
 <br>
                 <label for="confirmation"> Confirmation du mot de passe : <span class="requis">*</span></label>
-                <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" />
+                <input type="password" id="confirmation" name="confirmation" value="" size="30" maxlength="30" />
                 <span class="erreur">${form.erreurs['confirmation']}</span>
 <br>
                 <input type="submit" value="Inscription" class="sansLabel" />
