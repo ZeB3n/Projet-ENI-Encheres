@@ -13,7 +13,7 @@
 </header>
 <body>
 	<h1>ACCUEIL DE ENI-ENCHERES</h1>
-		<a href="<%=request.getContextPath()%>/ServletConnexion"><button type="submit" formmethod="get">Connexion</button></a>
+		<a href="${pageContext.request.contextPath}/ServletConnexion"><button type="submit" formmethod="get">Connexion</button></a>
 		<%-- Vérification de la présence d'un objet utilisateur en session --%>
 	            <c:if test="${!empty sessionScope.sessionUtilisateur}">
 	            <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
