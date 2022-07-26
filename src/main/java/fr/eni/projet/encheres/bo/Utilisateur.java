@@ -18,9 +18,9 @@ public class Utilisateur implements Serializable {
 	private String email;
 	private String telephone;
 	private String rue;
-	private String code_postal;
+	private String codePostal;
 	private String ville;
-	private String mot_de_passe;
+	private String motDePasse;
 	private int credit;
 	private boolean administrateur;
 
@@ -42,16 +42,16 @@ public Utilisateur() {
  * @param credit credit de l'utilisateur
  * @param administrateur administrateur de l'utilisateur
  */
-public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, String code_postal, String ville,
-		String mot_de_passe, int credit, boolean administrateur) {
+public Utilisateur(String pseudo, String nom, String prenom, String email, String rue, String codePostal, String ville,
+		String motDePasse, int credit, boolean administrateur) {
 	setPseudo(pseudo);
 	setNom(nom);
 	setPrenom(prenom);
 	setEmail(email);
 	setRue(rue);
-	setCode_postal(code_postal);
+	setCodePostal(codePostal);
 	setVille(ville);
-	setMotDePasse(mot_de_passe);
+	setMotDePasse(motDePasse);
 	setCredit(credit);
 	setAdministrateur(administrateur);
 }
@@ -59,8 +59,8 @@ public Utilisateur(String pseudo, String nom, String prenom, String email, Strin
 @Override
 public String toString() {
 	return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-			+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", code_postal="
-			+ code_postal + ", ville=" + ville + ", mot_de_passe=" + mot_de_passe + ", credit=" + credit
+			+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
+			+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
 			+ ", administrateur=" + administrateur + "]";
 }
 
@@ -135,13 +135,13 @@ public void setRue(String rue) {
 }
 
 
-public String getCode_postal() {
-	return code_postal;
+public String getCodePostal() {
+	return codePostal;
 }
 
 
-public void setCode_postal(String code_postal) {
-	this.code_postal = code_postal;
+public void setCodePostal(String codePostal) {
+	this.codePostal = codePostal;
 }
 
 
@@ -156,12 +156,12 @@ public void setVille(String ville) {
 
 
 public String getMot_de_passe() {
-	return mot_de_passe;
+	return motDePasse;
 }
 
 
-public void setMotDePasse(String mot_de_passe) {
-	this.mot_de_passe = mot_de_passe;
+public void setMotDePasse(String motDePasse) {
+	this.motDePasse = motDePasse;
 }
 
 

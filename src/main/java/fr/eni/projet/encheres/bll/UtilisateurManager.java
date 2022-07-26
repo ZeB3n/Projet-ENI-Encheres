@@ -7,217 +7,243 @@ import fr.eni.projet.encheres.bo.Utilisateur;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class UtilisateurManager {
-	private static String              resultat;
-	private static Map<String, String> erreurs = new HashMap<String, String>();
-
 	
-	/* public static void insererUtilisateur(Utilisateur utilisateur) {
-		// TODO : Appel de la méthode validationUtilisateur puis appel de la méthode insererUtilisateur de la DAL.
-	} */
-		
-	public String getResultat() {
-	        return resultat;
-	}
-	
-	public Map<String, String> getErreurs() {
-		return erreurs;
-	}
+    private String resultat;
+    private Map<String, String> erreurs      = new HashMap<String, String>();
 
-	public Utilisateur insererUtilisateur ( HttpServletRequest request) {
-		/* Utilisateur utilisateur = new Utilisateur();
-		utilisateur.setPseudo(request.getParameter("pseudo"));
-		utilisateur.setNom(request.getParameter("nom"));
-		utilisateur.setPrenom(request.getParameter("prenom"));
-		utilisateur.setEmail(request.getParameter("email"));
-		utilisateur.setTelephone(request.getParameter("telephone"));
-		utilisateur.setRue(request.getParameter("rue"));
-		utilisateur.setCode_postal(request.getParameter("code_postal"));
-		utilisateur.setVille(request.getParameter("ville"));
-		utilisateur.setMotDePasse(request.getParameter("mot_de_passe")); */
-		
+    public String getResultat() {
+        return resultat;
+    }
+
+    public Map<String, String> getErreurs() {
+        return erreurs;
+    }
+
+    public Utilisateur inscrireUtilisateur( HttpServletRequest request ) {
 		String pseudo = getValeurChamp(request, "pseudo");
 		String nom = getValeurChamp(request, "nom");
 		String prenom = getValeurChamp(request, "prenom");
-		String email = getValeurChamp(request, "email");
+        String email = getValeurChamp( request, "email" );
 		String telephone = getValeurChamp(request, "telephone");
 		String rue = getValeurChamp(request, "rue");
-		String code_postal = getValeurChamp(request, "code_postal");
+		String codePostal = getValeurChamp(request, "codePostal");
 		String ville = getValeurChamp(request, "ville");
-		String mot_de_passe = getValeurChamp(request, "mot_de_passe");
-		String confirmation = getValeurChamp(request, "confirmation");
-		
-		Utilisateur utilisateur = new Utilisateur();
-		
-		/* Validation du champ Pseudo */
+        String motDePasse = getValeurChamp( request, "motDePasse" );
+        String confirmation = getValeurChamp( request, "confirmation" );
+
+        Utilisateur utilisateur = new Utilisateur();
+
 		try {
-			validationPseudo(pseudo);
+			validationPseudo( pseudo );
 		} catch (Exception e) {
 			setErreur("pseudo", e.getMessage());
 		}
-		utilisateur.setPseudo("pseudo");
-		
-			/* Validation du champ Nom */
+		utilisateur.setPseudo( pseudo );
+        
 		try {
-			validationNom(nom);
+			validationNom( nom );
 		} catch (Exception e) {
 			setErreur("nom", e.getMessage());
 		}
-		utilisateur.setNom("nom");
+		utilisateur.setNom( nom );
 		
-			/* Validation du champ Prénom */
 		try {
-			validationPrenom(prenom);
+			validationPrenom( prenom );
 		} catch (Exception e) {
 			setErreur("prenom", e.getMessage());
 		}
-		utilisateur.setPrenom("prenom");
+		utilisateur.setPrenom( prenom );
 		
-			/* Validation du champ Email */
+        try {
+            validationEmail( email );
+        } catch ( Exception e ) {
+            setErreur( "email", e.getMessage() );
+        }
+        utilisateur.setEmail( email );
+
 		try {
-			validationEmail(email);
-		} catch (Exception e) {
-			setErreur("email", e.getMessage());
-		}
-		utilisateur.setEmail("email");
-		
-			/* Validation du champ Téléphone */
-		try {
-			validationTelephone(telephone);
+			validationTelephone( telephone );
 		} catch (Exception e) {
 			setErreur("telephone", e.getMessage());
 		}
-		utilisateur.setTelephone("telephone");
-			
-			/* Validation du champ Rue */
+		utilisateur.setTelephone( telephone );
+        
 		try {
-			validationRue(rue);
+			validationRue( rue );
 		} catch (Exception e) {
 			setErreur("rue", e.getMessage());
 		}
-		utilisateur.setRue("rue");
+		utilisateur.setRue( rue );
 		
-			/* Validation du champ Code Postal */
 		try {
-			validationCode_Postal(code_postal);
+			validationCodePostal( codePostal );
 		} catch (Exception e) {
-			setErreur("code_postal", e.getMessage());
+			setErreur("codePostal", e.getMessage());
 		}
-		utilisateur.setCode_postal("code_postal");
+		utilisateur.setCodePostal( codePostal );
 		
-			/* Validation du champ Ville */
 		try {
 			validationVille(ville);
 		} catch (Exception e) {
 			setErreur("ville", e.getMessage());
 		}
-		utilisateur.setVille("ville");
+		utilisateur.setVille( ville );
 		
-			/* Validation des champs Mot de passe et Confirmation */
-		try {
-			validationMot_De_Passe(mot_de_passe, confirmation);
-		} catch (Exception e) {
-			setErreur("mot_de_passe", e.getMessage());
-			setErreur("confirmation", null);
-		}
-		utilisateur.setMotDePasse("mot_de_passe");
-		
-		/* Résulat global de validation */
-		if (erreurs.isEmpty()) {
-			resultat = "Inscription réussie.";
-		} else {
-			resultat = "Vous êtes nul, pas foutu de remplir 10 cases! Grosse merde!!";
-		}
-		
-		return utilisateur;
-	}
-	/* Gestion des erreurs de validation */
-	
-	/* Méthode de Validation des champs Mot de passe et Confirmation */
-	private static void validationMot_De_Passe(String mot_de_passe, String confirmation) throws Exception {
-		if (mot_de_passe != null && mot_de_passe.trim().length() != 0 && confirmation != null && confirmation.trim().length() != 0) {
-			if(!mot_de_passe.equals(confirmation)) {
-				throw new Exception("Mots de passe renseignés différents, saisir le même mot de passe.");
-			} else if ( !mot_de_passe.matches("(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$)")) {
-				throw new Exception("Le mot de passe doit contenir au moins 8 caractères, dont 1 caractère spécial, un chiffre, et une majuscule.");
-			}
-		} else {
-			throw new Exception("Saisir, puis confirmer le mot de passe.");
-		}
-		
-	}
+        try {
+            validationConfirmation( motDePasse, confirmation );
+        } catch ( Exception e ) {
+            setErreur( "motDePasse", e.getMessage() );
+            setErreur( "confirmation", null );
+        }
+        utilisateur.setMotDePasse( "" );
 
-	/* Méthode de Validation du champ Ville */
-	private static void validationVille(String ville) throws Exception {
-		if (ville != null && ville.trim().length() != 0) {
-			throw new Exception("Le champ ville doit être rempli");
-		}
-	}
+        return utilisateur;
+    }
+    
+    public Utilisateur connecterUtilisateur( HttpServletRequest request ) {
+        /* Récupération des champs du formulaire */
+        String email = getValeurChamp( request, "email" );
+        String motDePasse = getValeurChamp( request, "motDePasse" );
+    
+        Utilisateur utilisateur = new Utilisateur();
 
-	/* Méthode de Validation du champ Code Postal (Certains pays ont une lettre dans leur code postal) */
-	private static void validationCode_Postal(String code_postal) throws Exception {
-		if (code_postal != null && code_postal.trim().length() != 0) {
-			throw new Exception("Le champ code postal doit être rempli");
-		}
-	}
+        /* Validation du champ email. */
+        try {
+            validationEmail( email );
+        } catch ( Exception e ) {
+            setErreur( "email", e.getMessage() );
+        }
+        utilisateur.setEmail( email );
 
-	/* Méthode de Validation du champ Rue */
-	private static void validationRue(String rue) throws Exception {
-		if (rue != null && rue.trim().length() != 0) {
-			throw new Exception("Le champ rue doit être rempli");
-		}
-	}
+        /* Validation du champ mot de passe. */
+        try {
+            validationMotDePasse( motDePasse );
+        } catch ( Exception e ) {
+            setErreur( "motdepasse", e.getMessage() );
+        }
+        utilisateur.setMotDePasse( motDePasse );
 
-	/* Méthode de Validation du champ Téléphone */
-	private static void validationTelephone(String telephone) throws Exception {
-		if (telephone != null && telephone.trim().length() != 0) {
-			if ( !telephone.matches("(^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$)")) {
-				throw new Exception("Le champ téléphone doit être valide");
-			}
-		} else {
-			throw new Exception("Le champ téléphone doit être rempli");
-		}
-	}
-
-	/* Méthode de Validation du champ Email */
-	private static void validationEmail(String email) throws Exception {
-		if (email != null && email.trim().length() != 0) {
-			if ( !email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
-				throw new Exception("Saisir une adresse email valide (pas de @ présent)");
-			}
-		} else {
-			throw new Exception("Le champ email doit être rempli");
-		}
-		
-	}
-
-	/* Méthode de Validation du champ Prénom */
-	private static void validationPrenom(String prenom) throws Exception {
-		if (prenom != null && prenom.trim().length() != 0) {
-			throw new Exception("Le champ prénom doit être rempli");
-		}
-	}
-
-	/* Méthode de Validation du champ Nom */
-	private static void validationNom(String nom) throws Exception {
-		if (nom != null && nom.trim().length() != 0) {
-			throw new Exception("Le champ nom doit être rempli");
-		}
-	}
-
-	/* Méthode de Validation du champ Pseudo */
+        /* Initialisation du résultat global de la validation. */
+        if ( erreurs.isEmpty() ) {
+            resultat = "Succès de la connexion.";
+        } else {
+            resultat = "Échec de la connexion.";
+        }
+        
+        return utilisateur;
+    }
+    
 	private static void validationPseudo(String pseudo) throws Exception {
-		if (pseudo != null && pseudo.trim().length() < 3) {
-			throw new Exception("Le champ pseudo doit contenir au moins 3 caractères");
+		if (pseudo != null ) {
+			if (pseudo.length() > 30){
+				throw new Exception ( "Le pseudo doit contenir moins de 30 caractères." );
+			}
+		} else {
+			throw new Exception( "Merci de saisir un pseudo." );
+		}
+	}
+    
+	private static void validationNom(String nom) throws Exception {
+		if (nom != null ) {
+			if (nom.length() > 30){
+				throw new Exception ( "Le nom doit contenir moins de 30 caractères." );
+			}
+		} else {
+			throw new Exception( "Merci de saisir un nom." );
 		}
 	}
 	
-	/*
+	private static void validationPrenom(String prenom) throws Exception {
+		if (prenom != null ) {
+			if (prenom.length() > 30){
+				throw new Exception ( "Le prénom doit contenir moins de 30 caractères." );
+			}
+		} else {
+			throw new Exception( "Merci de saisir un prénom." );
+		}
+	}
+	
+    private void validationEmail( String email ) throws Exception {
+        if ( email != null ) {
+            if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+                throw new Exception( "Merci de saisir une adresse mail valide." );
+            } else if ( email.length() > 50 ) {
+            throw new Exception( "L'email doit contenir moins de 50 caractères." );
+            }
+        } else {
+            throw new Exception( "Merci de saisir une adresse mail." );
+        }
+    }
+    
+	private static void validationTelephone(String telephone) throws Exception {
+        if ( telephone != null ) {
+            if ( telephone.length() >= 1 && telephone.length() < 10 ) {
+                throw new Exception( "Le téléphone doit contenir au moins 10 caractères." );
+            }
+        } else {
+            return;
+        }
+    }
+	
+	private static void validationRue(String rue) throws Exception {
+		if (rue != null ) {
+			if (rue.length() > 30){
+				throw new Exception ( "La rue doit contenir moins de 30 caractères." );
+			}
+		} else {
+			throw new Exception( "Merci de saisir une rue." );
+		}
+	}
+    
+	private static void validationCodePostal(String codePostal) throws Exception {
+		if (codePostal != null ) {
+			if (codePostal.length() > 10 ){
+				throw new Exception ( "Le code postal doit contenir moins de 10 caractères." );
+			}
+		} else {
+			throw new Exception( "Merci de saisir un code postal." );
+		}
+	}
+	
+	private static void validationVille(String ville) throws Exception {
+		if (ville != null ) {
+			if (ville.length() > 30 ){
+				throw new Exception ( "La ville doit contenir moins de 30 caractères." );
+			}
+		} else {
+			throw new Exception( "Merci de saisir une ville." );
+		}
+	}
+	
+    private void validationConfirmation( String motDePasse, String confirmation ) throws Exception {
+        if ( motDePasse != null && confirmation != null ) {
+            if ( !motDePasse.equals( confirmation ) ) {
+                throw new Exception( "Les mots de passe entrés sont différents, merci de les saisir à nouveau." );
+            } else if ( motDePasse.length() > 30 ) {
+                throw new Exception( "Les mots de passe doivent contenir moins de 30 caractères." );
+            }
+        } else {
+            throw new Exception( "Merci de saisir et confirmer votre mot de passe." );
+        }
+    }
+    
+    private void validationMotDePasse( String motDePasse ) throws Exception {
+        if ( motDePasse != null ) {
+            if ( motDePasse.length() < 3 ) {
+                throw new Exception( "Le mot de passe doit contenir au moins 3 caractères." );
+            }
+        } else {
+            throw new Exception( "Merci de saisir votre mot de passe." );
+        }
+    }
+    
+    /*
      * Ajoute un message correspondant au champ spécifié à la map des erreurs.
      */
-    private static void setErreur( String champ, String message ) {
+    private void setErreur( String champ, String message ) {
         erreurs.put( champ, message );
     }
-
+    
     /*
      * Méthode utilitaire qui retourne null si un champ est vide, et son contenu
      * sinon.
@@ -231,4 +257,3 @@ public class UtilisateurManager {
         }
     }
 }
-
