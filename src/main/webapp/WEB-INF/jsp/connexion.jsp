@@ -12,23 +12,23 @@
 </header>
     <body>
     <br>
-        <form method="post" action="${pageContext.servletContext.contextPath }/ServletConnexion">
+        <form method="post" action="${pageContext.servletContext.contextPath}/ServletConnexion">
             <fieldset>
                 <legend>Connexion</legend>
                 <p>Vous pouvez vous connecter via ce formulaire.</p>
 
                 <label for="id_pseudo">Pseudo <span class="requis">*</span></label>
-                <input type="text" id="id_pseudo" name="pseudo" value="<c:out value="${utilisateur.pseudo}"/>" size="30" maxlength="50" />
-                <span class="erreur"></span>
+                <input type="text" id="id_pseudo" name="pseudo" size="30" maxlength="50" required="required"/>
+                
 				<br />
 
                 <label for="id_mot_de_passe">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="id_mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" />
-                <span class="erreur"></span>
+                <input type="password" id="id_mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" required="required" />
+                
 				<br />
 				<div>
                 <input type="submit" value="Connexion" class="sansLabel" />
-            	<a href="ServletInscription"> <input type="button" class="boutonForm" value="Créer un compte"> </a>
+            	<a href="${pageContext.servletContext.contextPath}/ServletInscription"> <input type="button" class="boutonForm" value="Créer un compte"> </a>
             	</div>
        			
 

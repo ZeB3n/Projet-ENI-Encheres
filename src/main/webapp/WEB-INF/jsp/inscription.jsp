@@ -12,7 +12,7 @@
 		</header>
     <body>
     <br>
-        <form method="post" action="ServletInscription">
+        <form method="post" action="${pageContext.servletContext.contextPath}ServletInscription">
             <fieldset>
                 <legend>Inscription</legend>
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
