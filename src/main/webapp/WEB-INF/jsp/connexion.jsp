@@ -12,19 +12,19 @@
 </header>
     <body>
     <br>
-        <form method="post" action="ServletConnexion">
+        <form method="post" action="${pageContext.servletContext.contextPath }/ServletConnexion">
             <fieldset>
                 <legend>Connexion</legend>
                 <p>Vous pouvez vous connecter via ce formulaire.</p>
 
-                <label for="email">Adresse email <span class="requis">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${utilisateur.email}"/>" size="30" maxlength="50" />
-                <span class="erreur">${form.erreurs['email']}</span>
+                <label for="id_pseudo">Pseudo <span class="requis">*</span></label>
+                <input type="text" id="id_pseudo" name="pseudo" value="<c:out value="${utilisateur.pseudo}"/>" size="30" maxlength="50" />
+                <span class="erreur"></span>
 				<br />
 
-                <label for="mot_de_passe">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" />
-                <span class="erreur">${form.erreurs['mot_de_passe']}</span>
+                <label for="id_mot_de_passe">Mot de passe <span class="requis">*</span></label>
+                <input type="password" id="id_mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" />
+                <span class="erreur"></span>
 				<br />
 				<div>
                 <input type="submit" value="Connexion" class="sansLabel" />

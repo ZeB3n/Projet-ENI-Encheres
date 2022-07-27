@@ -31,13 +31,6 @@ public class ConnectionProvider {
 	{
 		return ConnectionProvider.dataSource.getConnection();     
 	}
-	
-	public static void seDeconnecter(PreparedStatement pstmt, Connection cnx) throws SQLException {
-		if (pstmt != null)
-				pstmt.close();
-		if (cnx != null)
-				cnx.close();
-	}
 }
 
 
