@@ -1,56 +1,83 @@
 package fr.eni.projet.encheres.bll;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import fr.eni.projet.encheres.BusinessException;
 import fr.eni.projet.encheres.bo.Utilisateur;
-import fr.eni.projet.encheres.dal.UtilisateurDAO;
-import jakarta.servlet.http.HttpServletRequest;
+import fr.eni.projet.encheres.dal.DAOFactory;
 
 public class UtilisateurManager {
-	private UtilisateurDAO utilisateurDAO;
 	
-	public Utilisateur ajouterUtilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, String code_postal,
-								   String ville, String mot_de_passe, String confirmation) throws BusinessException {
-		BusinessException businessException = new BusinessException();
-		
-		this.validationPseudo(pseudo, businessException);
-		this.validationNom(nom, businessException);
-		this.validationPrenom(prenom, businessException);
-		this.validationEmail(email, businessException);
-		this.validationTelephone(telephone, businessException);
-		this.validationRue(rue, businessException);
-		this.validationCodePostal(code_postal, businessException);
-		this.validationVille(ville, businessException);
-		this.validationMotDePasse(mot_de_passe, businessException);
-		this.validationConfirmation(mot_de_passe, confirmation, businessException);
-		
-		Utilisateur utilisateur = null;
-		
-		if(!businessException.hasErreurs())
-		{
-			utilisateur = new Utilisateur();
-			utilisateur.setPseudo(pseudo);
-			utilisateur.setNom(nom);
-			utilisateur.setPrenom(prenom);
-			utilisateur.setEmail(email);
-			utilisateur.setTelephone(telephone);
-			utilisateur.setRue(rue);
-			utilisateur.setCodePostal(code_postal);
-			utilisateur.setVille(ville);
-			utilisateur.setMotDePasse(mot_de_passe);
-			
-			this.utilisateurDAO.insertUtilisateur(utilisateur);
-		}
-		else
-		{
-			throw businessException;
-		}
-		return utilisateur;	
+//	private UtilisateurDAO utilisateurDAO;
 	
+	// Singleton
+	// utilisateurManager = instance
+	private static UtilisateurManager utilisateurManager;
+	
+	private UtilisateurManager() {
 	}
 	
+	public static UtilisateurManager getUtilisateurManager() {
+		if(utilisateurManager == null) {
+			utilisateurManager = new UtilisateurManager();
+		}
+		return utilisateurManager;
+	}
+	
+	public int connexion(String pseudo, String mot_de_passe) throws Exception {
+		validationPseudo(pseudo);
+		Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+		if (!mot_de_passe.equals(utilisateur.getMotDePasse())){
+			throw new Exception("Le mot de passe est erroné.");
+		}
+		return utilisateur.getNo_utilisateur();
+	}
+	
+    private void validationPseudo(String pseudo) throws Exception {
+    	Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
+    	if (utilisateur == null) {
+    		throw new Exception("Le pseudo est inconnu.");
+    	}
+	}
+	
+	
+//	public Utilisateur ajouterUtilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, String code_postal,
+//								   		  String ville, String mot_de_passe, String confirmation) throws BusinessException {
+//		BusinessException businessException = new BusinessException();
+//		
+//		this.validationPseudo(pseudo, businessException);
+//		this.validationNom(nom, businessException);
+//		this.validationPrenom(prenom, businessException);
+//		this.validationEmail(email, businessException);
+//		this.validationTelephone(telephone, businessException);
+//		this.validationRue(rue, businessException);
+//		this.validationCodePostal(code_postal, businessException);
+//		this.validationVille(ville, businessException);
+//		this.validationMotDePasse(mot_de_passe, businessException);
+//		this.validationConfirmation(mot_de_passe, confirmation, businessException);
+//		
+//		Utilisateur utilisateur = null;
+//		
+//		if(!businessException.hasErreurs())
+//		{
+//			utilisateur = new Utilisateur();
+//			utilisateur.setPseudo(pseudo);
+//			utilisateur.setNom(nom);
+//			utilisateur.setPrenom(prenom);
+//			utilisateur.setEmail(email);
+//			utilisateur.setTelephone(telephone);
+//			utilisateur.setRue(rue);
+//			utilisateur.setCodePostal(code_postal);
+//			utilisateur.setVille(ville);
+//			utilisateur.setMotDePasse(mot_de_passe);
+//			
+//			this.utilisateurDAO.insertUtilisateur(utilisateur);
+//		}
+//		else
+//		{
+//			throw businessException;
+//		}
+//		return utilisateur;	
+//	
+//	}
+//	
 // ------------------------------------------------------------------------------------	
 //			 Map passée en List via BusinessException
 	
@@ -311,129 +338,129 @@ public class UtilisateurManager {
 //            return valeur.trim();
 //        }
 //    }
-    
-    private void validationPseudo(String pseudo, BusinessException businessException) {
-		if (pseudo != null) {
-			if (pseudo.trim().length()>30){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_PSEUDO_TAILLE); 
-				// Message à afficher = "Le pseudo doit contenir moins de 30 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_PSEUDO_NULL); 
-			// Message à afficher = "Merci de saisir un pseudo."
-		}
-	}
-    
-    private void validationNom(String nom, BusinessException businessException) {
-		if (nom != null) {
-			if (nom.trim().length()>30){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_NOM_TAILLE); 
-				// Message à afficher = "Le nom doit contenir moins de 30 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_NOM_NULL); 
-			// Message à afficher = "Merci de saisir un nom."
-		}
-	}
-    
-    private void validationPrenom(String prenom, BusinessException businessException) {
-		if (prenom != null) {
-			if (prenom.trim().length()>30){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_PRENOM_TAILLE); 
-				// Message à afficher = "Le prenom doit contenir moins de 30 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_PRENOM_NULL); 
-			// Message à afficher = "Merci de saisir un prenom."
-		}
-	}
-    
-    private void validationEmail(String email, BusinessException businessException) {
-		if (email != null) {
-			if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_EMAIL_FORMAT);
-				// TODO : Message à afficher = "Merci de saisir une adresse mail valide."
-			} else if (email.trim().length()>50){
-					businessException.ajouterErreur(CodesResultatBLL.REGLE_EMAIL_TAILLE); 
-					// Message à afficher = "Le email doit contenir moins de 50 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_EMAIL_NULL); 
-			// Message à afficher = "Merci de saisir un email."
-		}
-	}
-    
-    private void validationTelephone(String telephone, BusinessException businessException) {
-		if (telephone != null) {
-			if (telephone.trim().length()>=1 && telephone.length()<10){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_TELEPHONE_TAILLE); 
-				// Message à afficher = "Le téléphone doit contenir moins de 10 caractères."
-			}
-		} else {
-			return;
-		}
-	}
-    
-    private void validationRue(String rue, BusinessException businessException) {
-		if (rue != null) {
-			if (rue.trim().length()>30){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_RUE_TAILLE); 
-				// Message à afficher = "Le rue doit contenir moins de 30 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_RUE_NULL); 
-			// Message à afficher = "Merci de saisir une rue."
-		}
-	}
-    
-    private void validationCodePostal(String code_postal, BusinessException businessException) {
-		if (code_postal != null) {
-			if (code_postal.trim().length()>10){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_CODEPOSTAL_TAILLE); 
-				// Message à afficher = "Le code postal doit contenir moins de 10 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_CODEPOSTAL_NULL); 
-			// Message à afficher = "Merci de saisir un code postal."
-		}
-	}
-    
-    private void validationVille(String ville, BusinessException businessException) {
-		if (ville != null) {
-			if (ville.trim().length()>10){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_VILLE_TAILLE); 
-				// Message à afficher = "Le ville doit contenir moins de 30 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_VILLE_NULL); 
-			// Message à afficher = "Merci de saisir une ville."
-		}
-	}
-    
-    private void validationMotDePasse(String mot_de_passe, BusinessException businessException) {
-		if (mot_de_passe != null) {
-			if (mot_de_passe.trim().length()<3){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_MDP_TAILLE); 
-				// Message à afficher = "Le mot de passe doit contenir au moins 3 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_MDP_NULL); 
-			// Message à afficher = "Merci de saisir un mot de passe."
-		}
-	}
-    
-    private void validationConfirmation(String mot_de_passe, String confirmation, BusinessException businessException) {
-		if (mot_de_passe != null && confirmation != null) {
-			if (!mot_de_passe.equals(confirmation)){
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_CONFIRMATIONMDP_DIFFERENTS); 
-				//  Message à afficher = "Les mots de passe entrés sont différents, merci de les saisir à nouveau."
-			} else if ( mot_de_passe.length() > 30 ) {
-				businessException.ajouterErreur(CodesResultatBLL.REGLE_CONFIRMATIONMDP_TAILLE);
-	          // Message à afficher = "Les mots de passe doivent contenir moins de 30 caractères."
-			}
-		} else {
-			businessException.ajouterErreur(CodesResultatBLL.REGLE_CONFIRMATIONMDP_NULL); 
-			// Message à afficher = "Merci de saisir et confirmer votre mot de passe."
-		}
-	}
+//    
+//    private void validationPseudo(String pseudo, BusinessException businessException) {
+//		if (pseudo != null) {
+//			if (pseudo.trim().length()>30){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_PSEUDO_TAILLE); 
+//				// Message à afficher = "Le pseudo doit contenir moins de 30 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_PSEUDO_NULL); 
+//			// Message à afficher = "Merci de saisir un pseudo."
+//		}
+//	}
+//    
+//    private void validationNom(String nom, BusinessException businessException) {
+//		if (nom != null) {
+//			if (nom.trim().length()>30){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_NOM_TAILLE); 
+//				// Message à afficher = "Le nom doit contenir moins de 30 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_NOM_NULL); 
+//			// Message à afficher = "Merci de saisir un nom."
+//		}
+//	}
+//    
+//    private void validationPrenom(String prenom, BusinessException businessException) {
+//		if (prenom != null) {
+//			if (prenom.trim().length()>30){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_PRENOM_TAILLE); 
+//				// Message à afficher = "Le prenom doit contenir moins de 30 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_PRENOM_NULL); 
+//			// Message à afficher = "Merci de saisir un prenom."
+//		}
+//	}
+//    
+//    private void validationEmail(String email, BusinessException businessException) {
+//		if (email != null) {
+//			if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_EMAIL_FORMAT);
+//				// TODO : Message à afficher = "Merci de saisir une adresse mail valide."
+//			} else if (email.trim().length()>50){
+//					businessException.ajouterErreur(CodesResultatBLL.REGLE_EMAIL_TAILLE); 
+//					// Message à afficher = "Le email doit contenir moins de 50 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_EMAIL_NULL); 
+//			// Message à afficher = "Merci de saisir un email."
+//		}
+//	}
+//    
+//    private void validationTelephone(String telephone, BusinessException businessException) {
+//		if (telephone != null) {
+//			if (telephone.trim().length()>=1 && telephone.length()<10){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_TELEPHONE_TAILLE); 
+//				// Message à afficher = "Le téléphone doit contenir moins de 10 caractères."
+//			}
+//		} else {
+//			return;
+//		}
+//	}
+//    
+//    private void validationRue(String rue, BusinessException businessException) {
+//		if (rue != null) {
+//			if (rue.trim().length()>30){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_RUE_TAILLE); 
+//				// Message à afficher = "Le rue doit contenir moins de 30 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_RUE_NULL); 
+//			// Message à afficher = "Merci de saisir une rue."
+//		}
+//	}
+//    
+//    private void validationCodePostal(String code_postal, BusinessException businessException) {
+//		if (code_postal != null) {
+//			if (code_postal.trim().length()>10){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_CODEPOSTAL_TAILLE); 
+//				// Message à afficher = "Le code postal doit contenir moins de 10 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_CODEPOSTAL_NULL); 
+//			// Message à afficher = "Merci de saisir un code postal."
+//		}
+//	}
+//    
+//    private void validationVille(String ville, BusinessException businessException) {
+//		if (ville != null) {
+//			if (ville.trim().length()>10){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_VILLE_TAILLE); 
+//				// Message à afficher = "Le ville doit contenir moins de 30 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_VILLE_NULL); 
+//			// Message à afficher = "Merci de saisir une ville."
+//		}
+//	}
+//    
+//    private void validationMotDePasse(String mot_de_passe, BusinessException businessException) {
+//		if (mot_de_passe != null) {
+//			if (mot_de_passe.trim().length()<3){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_MDP_TAILLE); 
+//				// Message à afficher = "Le mot de passe doit contenir au moins 3 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_MDP_NULL); 
+//			// Message à afficher = "Merci de saisir un mot de passe."
+//		}
+//	}
+//    
+//    private void validationConfirmation(String mot_de_passe, String confirmation, BusinessException businessException) {
+//		if (mot_de_passe != null && confirmation != null) {
+//			if (!mot_de_passe.equals(confirmation)){
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_CONFIRMATIONMDP_DIFFERENTS); 
+//				//  Message à afficher = "Les mots de passe entrés sont différents, merci de les saisir à nouveau."
+//			} else if ( mot_de_passe.length() > 30 ) {
+//				businessException.ajouterErreur(CodesResultatBLL.REGLE_CONFIRMATIONMDP_TAILLE);
+//	          // Message à afficher = "Les mots de passe doivent contenir moins de 30 caractères."
+//			}
+//		} else {
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_CONFIRMATIONMDP_NULL); 
+//			// Message à afficher = "Merci de saisir et confirmer votre mot de passe."
+//		}
+//	}
 }

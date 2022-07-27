@@ -68,6 +68,23 @@ public Utilisateur(String pseudo, String nom, String prenom, String email, Strin
 		setMotDePasse(mot_de_passe);
 }
 
+public Utilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+		String rue, String code_postal, String ville, String mot_de_passe, int credit, boolean administrateur) {
+	
+		setNo_utilisateur(no_utilisateur);
+		setPseudo(pseudo);
+		setNom(nom);
+		setPrenom(prenom);
+		setEmail(email);
+		setTelephone(telephone);
+		setRue(rue);
+		setCodePostal(code_postal);
+		setVille(ville);
+		setMotDePasse(mot_de_passe);
+		setCredit(credit);
+		setAdministrateur(administrateur);
+}
+
 @Override
 public String toString() {
 	return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
