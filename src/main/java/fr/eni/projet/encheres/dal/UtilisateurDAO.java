@@ -12,6 +12,7 @@ public interface UtilisateurDAO {
 	 * @param utilisateur
 	 * @throws SQLException 
 	 */
-	Utilisateur rechercher(String login, String email, String mot_de_passe) throws SQLException;
+//	Utilisateur rechercher(String login, String email, String mot_de_passe) throws SQLException;
+	public void insertUtilisateur(Utilisateur utilisateur) throws BusinessException;
 		
 }

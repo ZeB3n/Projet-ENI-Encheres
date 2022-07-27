@@ -9,9 +9,10 @@
 <link type="text/css" rel="stylesheet" href="css/form.css" />
 </head>
 <header>
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/header2.jsp"></jsp:include>
 </header>
 <body>
+<br>
 	<h1>ACCUEIL DE ENI-ENCHERES</h1>
 		<a href="${pageContext.request.contextPath}/ServletConnexion"><button type="submit" formmethod="get">Connexion</button></a>
 		<a href="${pageContext.request.contextPath}/ServletDeconnexion"><button type="submit" formmethod="get">Déconnexion</button></a>

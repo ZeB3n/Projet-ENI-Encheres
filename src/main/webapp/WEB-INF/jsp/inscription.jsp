@@ -8,9 +8,10 @@
         <link type="text/css" rel="stylesheet" href="css/form.css" />
     </head>
 	    <header>
-		<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/header2.jsp"></jsp:include>
 		</header>
     <body>
+    <br>
         <form method="post" action="ServletInscription">
             <fieldset>
                 <legend>Inscription</legend>
