@@ -29,7 +29,7 @@
     				</ul>
 	            </c:if>
 	            
-    		<%-- Si l'utilisateur n'existe en session, alors on affiche la navbar non-connectée --%>
+    		<%-- Si l'utilisateur n'existe pas en session, alors on affiche la navbar non-connectée --%>
     		<c:if test="${empty sessionScope.sessionUtilisateur}">
     			<ul>
 			    	<li><a href="${pageContext.request.contextPath}/ServletConnexion"> S'inscrire - Se connecter </a></li>
