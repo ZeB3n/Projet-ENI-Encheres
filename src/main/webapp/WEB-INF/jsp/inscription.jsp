@@ -55,9 +55,9 @@
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
                 
                 <%-- Vérification de la présence d'un objet utilisateur en session --%>
-                <c:if test="${!empty sessionScope.id}">
+                <c:if test="${!empty sessionScope.utilisateur}">
                 <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
-                <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.id}</p>
+                <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.utilsateur.email}</p>
                 </c:if>
             </fieldset>
         </form>
