@@ -38,7 +38,7 @@
                 <%-- Vérification de la présence d'un objet id en session --%>
                 <c:if test="${!empty sessionScope.utilisateur}">
                     <%-- Si l'utilisateur existe en session, alors on affiche son pseudo. --%>
-                    <p class="succes">Vous êtes connecté(e) avec le pseudo : ${sessionScope.utilisateur.pseudo}</p>
+                    <p class="succes">Hello ${sessionScope.utilisateur.pseudo}, tu aimes toujours les cookies?</p>
                 </c:if>
             </fieldset>
         </form>

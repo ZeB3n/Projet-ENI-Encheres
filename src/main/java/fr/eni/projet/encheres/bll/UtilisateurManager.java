@@ -53,7 +53,7 @@ public class UtilisateurManager {
 //		this.validationMotDePasse(mot_de_passe, businessException);
 //		this.validationConfirmation(mot_de_passe, confirmation, businessException);
 //		
-//		Utilisateur utilisateur = null;
+//		Utilisateur utilisateur = null; 
 //		
 //		if(!businessException.hasErreurs())
 //		{
