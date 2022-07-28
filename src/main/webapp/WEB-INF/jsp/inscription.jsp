@@ -12,13 +12,13 @@
 		</header>
     <body>
     <br>
-        <form method="post" action="${pageContext.servletContext.contextPath}ServletInscription">
+        <form method="post" action="${pageContext.servletContext.contextPath}/ServletInscription">
             <fieldset>
                 <legend>Inscription</legend>
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
 				
 				<label for="id_pseudo"> Pseudo : <span class="requis">*</span></label>
-                <input type="text" id="id_pseudo" name="pseudo" size="30" maxlength="30" required="required" pattern="^[a-z0-9_-]{3,30}$"/>
+                <input type="text" id="id_pseudo" name="pseudo" size="30" maxlength="30" required="required" pattern="^[a-zA-Z0-9_-]{3,30}$"/>
 <br> 
 				<label for="id_nom"> Nom : <span class="requis">*</span></label>
                 <input type="text" id="id_nom" name="nom" size="30" maxlength="30" required="required"/>
@@ -34,7 +34,7 @@
                 <input type="text" id="telephone" name="telephone" size="30" maxlength="10" pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"/>
 <br>
                 <label for="rue"> Rue : <span class="requis">*</span></label>
-                <input type="text" id="rue" name="rue" size="30" maxlength="30" />
+                <input type="text" id="rue" name="rue" size="30" maxlength="30" required="required"/>
 <br>                
                 <label for="code_postal"> Code Postal : <span class="requis">*</span></label>
                 <input type="text" id="code_postal" name="code_postal" size="30" maxlength="10" required="required"/>
