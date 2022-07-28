@@ -38,8 +38,10 @@ public class ServletConnexion extends HttpServlet {
 			int no_utilisateur = UtilisateurManager.getUtilisateurManager().connexion(pseudo, mot_de_passe);
 			HttpSession session = request.getSession();
 			session.setAttribute("id", no_utilisateur);
+			doGet(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+    	
     }
 }
