@@ -76,5 +76,10 @@ public abstract class CodesResultatBLL {
 	public static final int REGLE_CONFIRMATIONMDP_TAILLE = 20019;
 
 	public static final int REGLE_CONFIRMATIONMDP_NULL = 20020;
+	
+	/**
+	 * Echec à la connexion quand l'utilisateur rentre un mauvais pseudo.
+	 */
+	public static final int REGLE_CONNEXION_PSEUDO = 20021;
 
 }

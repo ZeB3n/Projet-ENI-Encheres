@@ -33,10 +33,37 @@ public class UtilisateurManager {
     private void validationPseudo(String pseudo) throws Exception {
     	Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
     	if (utilisateur == null) {
-    		throw new Exception("Le pseudo est inconnu.");
+    		throw new Exception("Le pseudo est erroné.");
     	}
 	}
 	
+//	private void validerNomListe(String nomListe, BusinessException businessException) {
+//		if(nomListe==null || nomListe.trim().length()>50)
+//		{
+//			businessException.ajouterErreur(CodesResultatBLL.REGLE_LISTE_NOM_ERREUR);
+//		}
+//	}
+    
+    
+//	public void ajouterArticle(int idListeCourse, String nomArticle) throws BusinessException{
+//		BusinessException businessException = new BusinessException();
+//		this.validerNomArticle(nomArticle, businessException);
+//				
+//		if(!businessException.hasErreurs())
+//		{
+//			ListeCourse listeCourse = new ListeCourse();
+//			listeCourse.setId(idListeCourse);
+//			
+//			Article article = new Article(nomArticle.trim());
+//			listeCourse.getArticles().add(article);
+//			this.listeCourseDAO.insert(listeCourse);
+//		}
+//		else
+//		{
+//			throw businessException;
+//		}
+//	}
+    
 	
 //	public Utilisateur ajouterUtilisateur(int no_utilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue, String code_postal,
 //								   		  String ville, String mot_de_passe, String confirmation) throws BusinessException {

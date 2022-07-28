@@ -1,6 +1,7 @@
-<%@ page pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="fr.eni.projet.encheres.messages.LecteurMessage" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="fr.eni.javaee.fr.eni.projet.encheres.messages.LecteurMessage" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,19 +32,15 @@
                 <input type="submit" value="Connexion" class="sansLabel" />
             	<a href="${pageContext.servletContext.contextPath}/ServletInscription"> <input type="button" class="boutonForm" value="Créer un compte"> </a>
             	</div>
-       			
-				<c:if test="${!empty listeCodesErreur}">
-					<div class="alert alert-danger" role="alert">
+
+                <c:if test="${erreur != null}">
+					<div>
 					  <strong>Erreur!</strong>
 					  <ul>
-					  	<c:forEach var="code" items="${listeCodesErreur}">
-					  		<li>${LecteurMessage.getMessageErreur(code)}</li>
-					  	</c:forEach>
+					  		<li>${erreur}</li>
 					  </ul>
 					</div>
 				</c:if>
-
-                <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
 
                 <%-- Vérification de la présence d'un objet id en session --%>
                 <c:if test="${!empty sessionScope.utilisateur}">
