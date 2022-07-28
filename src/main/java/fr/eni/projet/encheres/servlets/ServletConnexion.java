@@ -13,9 +13,7 @@ import fr.eni.projet.encheres.bll.UtilisateurManager;
 import fr.eni.projet.encheres.bo.Utilisateur;
 
 public class ServletConnexion extends HttpServlet {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID  = 1L;
     public static final String CONNEXION        = "/WEB-INF/jsp/connexion.jsp";
     public static final String ACCUEIL          = "/ServletAccueil";

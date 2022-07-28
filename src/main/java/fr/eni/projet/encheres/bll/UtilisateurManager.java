@@ -5,7 +5,7 @@ import fr.eni.projet.encheres.dal.DAOFactory;
 
 public class UtilisateurManager {
 	
-//	private UtilisateurDAO utilisateurDAO;
+ //private UtilisateurDAO utilisateurDAO;
 	
 	// Singleton
 	// utilisateurManager = instance
