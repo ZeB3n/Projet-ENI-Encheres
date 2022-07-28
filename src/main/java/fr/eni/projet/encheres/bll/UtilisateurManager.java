@@ -21,13 +21,13 @@ public class UtilisateurManager {
 		return utilisateurManager;
 	}
 	
-	public int connexion(String pseudo, String mot_de_passe) throws Exception {
+	public Utilisateur connexion(String pseudo, String mot_de_passe) throws Exception {
 		validationPseudo(pseudo);
 		Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
 		if (!mot_de_passe.equals(utilisateur.getMotDePasse())){
 			throw new Exception("Le mot de passe est erroné.");
 		}
-		return utilisateur.getNo_utilisateur();
+		return utilisateur;
 	}
 	
     private void validationPseudo(String pseudo) throws Exception {

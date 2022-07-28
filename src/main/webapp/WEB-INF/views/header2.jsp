@@ -19,7 +19,7 @@
     <div class="nav-links">
     
     			<%-- Vérification de la présence d'un objet utilisateur en session --%>
-	            <c:if test="${!empty sessionScope.id}">
+	            <c:if test="${!empty sessionScope.utilisateur}">
 	            <%-- Si l'utilisateur existe en session, alors on affiche la navbar connectée --%>
 	            	<ul>
 			    		<li><a href="#"> Enchères </a></li>
@@ -30,7 +30,7 @@
 	            </c:if>
 	            
     		<%-- Si l'utilisateur n'existe pas en session, alors on affiche la navbar non-connectée --%>
-    		<c:if test="${empty sessionScope.id}">
+    		<c:if test="${empty sessionScope.utilisateur}">
     			<ul>
 			    	<li><a href="${pageContext.request.contextPath}/ServletConnexion"> S'inscrire - Se connecter </a></li>
     			</ul>

@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import fr.eni.projet.encheres.bll.UtilisateurManager;
+import fr.eni.projet.encheres.bo.Utilisateur;
 
 public class ServletConnexion extends HttpServlet {
 	/**
@@ -22,7 +23,7 @@ public class ServletConnexion extends HttpServlet {
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
     	HttpSession session = request.getSession();
     	RequestDispatcher rd;
-    	if(session.getAttribute("id") == null) {
+    	if(session.getAttribute("utilisateur") == null) {
     		rd = request.getRequestDispatcher(CONNEXION);
     	} else {
     		rd = request.getRequestDispatcher(ACCUEIL);
@@ -33,11 +34,12 @@ public class ServletConnexion extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
     	String pseudo = request.getParameter("pseudo");
     	String mot_de_passe = request.getParameter("mot_de_passe");
+    	Utilisateur utilisateur = null;
     	// On appelle la BLL
     	try {
-			int no_utilisateur = UtilisateurManager.getUtilisateurManager().connexion(pseudo, mot_de_passe);
+			utilisateur = UtilisateurManager.getUtilisateurManager().connexion(pseudo, mot_de_passe);
 			HttpSession session = request.getSession();
-			session.setAttribute("id", no_utilisateur);
+			session.setAttribute("utilisateur", utilisateur);
 			doGet(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
