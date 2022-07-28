@@ -24,7 +24,7 @@
 	            	<ul>
 			    		<li><a href="#"> Enchères </a></li>
 			    		<li><a href="#"> Vendre un article </a></li>
-			    		<li><a href="#"> Mon profil </a></li>
+			    		<li><a href="${pageContext.servletContext.contextPath}/ServletProfil"> Mon profil </a></li>
 			    		<li><a href="${pageContext.request.contextPath}/ServletDeconnexion"> Déconnexion </a></li>
     				</ul>
 	            </c:if>
