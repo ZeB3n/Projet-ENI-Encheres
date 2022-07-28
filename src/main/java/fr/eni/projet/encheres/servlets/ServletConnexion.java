@@ -42,6 +42,5 @@ public class ServletConnexion extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    	
     }
 }
