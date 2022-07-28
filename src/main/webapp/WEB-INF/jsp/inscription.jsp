@@ -17,45 +17,36 @@
                 <legend>Inscription</legend>
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
 				
-				<label for="pseudo"> Pseudo : <span class="requis">*</span></label>
-                <input type="text" id="pseudo" name="pseudo" value="<c:out value="${utilisateur.pseudo}"/>" size="30" maxlength="30"/>
-                <span class="erreur">${form.erreurs['pseudo']}</span>
+				<label for="id_pseudo"> Pseudo : <span class="requis">*</span></label>
+                <input type="text" id="id_pseudo" name="pseudo" size="30" maxlength="30" required="required" pattern="^[a-z0-9_-]{3,30}$"/>
 <br> 
-				<label for="nom"> Nom : <span class="requis">*</span></label>
-                <input type="text" id="nom" name="nom" value="<c:out value="${utilisateur.nom}"/>" size="30" maxlength="30" />
-                <span class="erreur">${form.erreurs['nom']}</span>
+				<label for="id_nom"> Nom : <span class="requis">*</span></label>
+                <input type="text" id="id_nom" name="nom" size="30" maxlength="30" required="required"/>
 <br>
                 <label for="prenom"> Prénom : <span class="requis">*</span></label>
-                <input type="text" id="prenom" name="prenom" value="<c:out value="${utilisateur.prenom}"/>" size="30" maxlength="30" />
-                <span class="erreur">${form.erreurs['prenom']}</span>
+                <input type="text" id="prenom" name="prenom" size="30" maxlength="30" required="required"/>
+                
 <br>
                 <label for="email"> Adresse email : <span class="requis">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${utilisateur.email}"/>" size="30" maxlength="50" />
-                <span class="erreur">${form.erreurs['email']}</span>
+                <input type="email" id="email" name="email" size="30" maxlength="50" required="required" pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"/>
 <br>                
                 <label for="telephone"> Téléphone : </label>
-                <input type="text" id="telephone" name="telephone" value="<c:out value="${utilisateur.telephone}"/>" size="30" maxlength="10" />
-                <span class="erreur">${form.erreurs['telephone']}</span>
+                <input type="text" id="telephone" name="telephone" size="30" maxlength="10" pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"/>
 <br>
                 <label for="rue"> Rue : <span class="requis">*</span></label>
-                <input type="text" id="rue" name="rue" value="<c:out value="${utilisateur.rue}"/>" size="30" maxlength="30" />
-                <span class="erreur">${form.erreurs['rue']}</span>
+                <input type="text" id="rue" name="rue" size="30" maxlength="30" />
 <br>                
                 <label for="code_postal"> Code Postal : <span class="requis">*</span></label>
-                <input type="text" id="code_postal" name="code_postal" value="<c:out value="${utilisateur.codePostal}"/>" size="30" maxlength="10" />
-                <span class="erreur">${form.erreurs['code_postal']}</span>
+                <input type="text" id="code_postal" name="code_postal" size="30" maxlength="10" required="required"/>
 <br>
                 <label for="ville"> Ville : <span class="requis">*</span></label>
-                <input type="text" id="ville" name="ville" value="<c:out value="${utilisateur.ville}"/>" size="30" maxlength="30" />
-                <span class="erreur">${form.erreurs['ville']}</span>
+                <input type="text" id="ville" name="ville" size="30" maxlength="30" required="required"/>
 <br>
                 <label for="mot_de_passe"> Mot de passe : <span class="requis">*</span></label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" />
-                <span class="erreur">${form.erreurs['mot_de_passe']}</span>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" value="" size="30" maxlength="30" required="required" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,30}$"/>
 <br>
                 <label for="confirmation"> Confirmation du mot de passe : <span class="requis">*</span></label>
-                <input type="password" id="confirmation" name="confirmation" value="" size="30" maxlength="30" />
-                <span class="erreur">${form.erreurs['confirmation']}</span>
+                <input type="password" id="confirmation" name="confirmation" value="" size="30" maxlength="30" required="required"/>
 <br>
                 <input type="submit" value="Inscription" class="sansLabel" />
                 <a href="ServletAccueil"> <input type="button" name="btAnnuler" value="Annuler" class="boutonForm" title="Annuler" /> </a>
