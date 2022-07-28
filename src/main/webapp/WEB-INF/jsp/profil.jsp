@@ -36,7 +36,7 @@
 <br> 
 				<p>Rue : ${sessionScope.utilisateur.rue} </p>   
 <br>				
-				<p>Code Postal : ${sessionScope.utilisateur.codepostal} </p>             
+				<p>Code Postal : ${sessionScope.utilisateur.codePostal} </p>             
 <br>
 				<p>Ville : ${sessionScope.utilisateur.ville} </p>                           
 <br>            
