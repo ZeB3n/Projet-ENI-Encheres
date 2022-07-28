@@ -17,9 +17,9 @@
 		<a href="${pageContext.request.contextPath}/ServletConnexion"><button type="submit" formmethod="get">Connexion</button></a>
 		<a href="${pageContext.request.contextPath}/ServletDeconnexion"><button type="submit" formmethod="get">Déconnexion</button></a>
 		<%-- Vérification de la présence d'un objet utilisateur en session --%>
-	    <c:if test="${!empty sessionScope.id}">
+	    <c:if test="${!empty sessionScope.utilisateur}">
 	    <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
-	    <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.id.pseudo}</p>
+	    <p class="succes">Vous êtes connecté(e) avec le pseudo : ${sessionScope.utilisateur.pseudo}</p>
 	    </c:if>
 </body>
 <footer>
