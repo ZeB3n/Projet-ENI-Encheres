@@ -13,7 +13,7 @@
 	</header>
 
 <body>
-
+<br>
 	<fieldset>
 	<%-- Vérification de la présence d'un objet utilisateur en session --%>
 		<c:if test="${!empty sessionScope.utilisateur}">
@@ -34,11 +34,11 @@
 <br>    
 				<p>Téléphone : ${sessionScope.utilisateur.telephone} </p>         
 <br> 
-				<p>Rue : ${sessionScope.utilisateur.rue} </p>            
+				<p>Rue : ${sessionScope.utilisateur.rue} </p>   
+<br>				
+				<p>Code Postal : ${sessionScope.utilisateur.codepostal} </p>             
 <br>
-				<p>Ville : ${sessionScope.utilisateur.ville} </p>                
-<br> 
-				<p>Mot de passe : *********** </p>                
+				<p>Ville : ${sessionScope.utilisateur.ville} </p>                           
 <br>            
 		</c:if>
 	</fieldset>
