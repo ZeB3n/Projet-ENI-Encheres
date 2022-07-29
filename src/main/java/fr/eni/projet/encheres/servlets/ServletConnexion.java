@@ -21,7 +21,7 @@ public class ServletConnexion extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     public static final String CONNEXION       = "/WEB-INF/jsp/connexion.jsp";
-    public static final String ACCUEIL         = "/ServletAccueil";
+    public static final String ACCUEIL         = "/Accueil";
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
     	HttpSession session = request.getSession();

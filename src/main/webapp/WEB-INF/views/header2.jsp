@@ -13,7 +13,7 @@
 <body>
 
 	<nav class="navbar">
-	<a href="${pageContext.request.contextPath}/ServletAccueil" class="logo">
+	<a href="${pageContext.request.contextPath}/Accueil" class="logo">
 	<img src="https://i.postimg.cc/k5vPsnCG/logo.png" height=100 alt="Cliquer ici pour revenir à la page d'accueil" />
     </a>
     <div class="nav-links">
@@ -22,17 +22,22 @@
 	            <c:if test="${!empty sessionScope.utilisateur}">
 	            <%-- Si l'utilisateur existe en session, alors on affiche la navbar connectée --%>
 	            	<ul>
+	            		<li style="bold"> <%-- Vérification de la présence d'un objet utilisateur en session --%>
+					    <c:if test="${!empty sessionScope.utilisateur}">
+					    <%-- Si l'utilisateur existe en session, alors on affiche son pseudo. --%>
+					     <b>Bonjoir ${sessionScope.utilisateur.pseudo}</b>
+					    </c:if> </li>
 			    		<li><a href="#"> Enchères </a></li>
 			    		<li><a href="#"> Vendre un article </a></li>
-			    		<li><a href="${pageContext.servletContext.contextPath}/ServletProfil"> Mon profil </a></li>
-			    		<li><a href="${pageContext.request.contextPath}/ServletDeconnexion"> Déconnexion </a></li>
+			    		<li><a href="${pageContext.servletContext.contextPath}/MonProfil"> Mon profil </a></li>
+			    		<li><a href="${pageContext.request.contextPath}/Deconnexion"> Déconnexion </a></li>
     				</ul>
 	            </c:if>
 	            
     		<%-- Si l'utilisateur n'existe pas en session, alors on affiche la navbar non-connectée --%>
     		<c:if test="${empty sessionScope.utilisateur}">
     			<ul>
-			    	<li><a href="${pageContext.request.contextPath}/ServletConnexion"> S'inscrire - Se connecter </a></li>
+			    	<li><a href="${pageContext.request.contextPath}/Connexion"> S'inscrire - Se connecter </a></li>
     			</ul>
     		</c:if>
     	

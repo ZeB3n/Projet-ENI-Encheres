@@ -12,7 +12,7 @@
 		</header>
     <body>
     <br>
-        <form method="post" action="${pageContext.servletContext.contextPath}/ServletInscription">
+        <form method="post" action="${pageContext.servletContext.contextPath}/Inscription">
             <fieldset>
                 <legend>Inscription</legend>
                 <p>Vous pouvez vous inscrire via ce formulaire.</p>
@@ -49,7 +49,7 @@
                 <input type="password" id="confirmation" name="confirmation" value="" size="30" maxlength="30" required="required"/>
 <br>
                 <input type="submit" value="Inscription" class="sansLabel" />
-                <a href="ServletAccueil"> <input type="button" name="btAnnuler" value="Annuler" class="boutonForm" title="Annuler" /> </a>
+                <a href="Accueil"> <input type="button" name="btAnnuler" value="Annuler" class="boutonForm" title="Annuler" /> </a>
                 <br />
 
                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>

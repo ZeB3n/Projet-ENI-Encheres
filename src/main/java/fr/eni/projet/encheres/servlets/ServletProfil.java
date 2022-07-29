@@ -13,7 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author Groupe Benjamin-Sylvie-Goulven
  *
  */
-@WebServlet("/ServletProfil")
 public class ServletProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -1,0 +1,80 @@
+@charset "UTF-8";
+body {padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 1370px 650px;
+    }
+
+#titre {text-align: center;}
+
+.entete{font-family: verdana;}
+
+.entete a {text-decoration: none;
+           color: rgb(44, 24, 18);}
+
+.entete img { width: 100px;
+             height: 100px;
+             position: absolute;
+             padding-left: 135px;
+             padding-right: 135px;
+             margin-top: -90px;
+             margin-left: auto;}
+
+#header-user-infos {float: right;
+                    margin-top: -60px;
+                    padding-right: 20px;}
+
+nav label {color: #242424}
+                 
+nav input {padding: 5px 10px;}
+
+#site-search {width: 400px;
+              height: 30px;
+              border-radius: 5px}
+
+#categorie {position: static;
+    width: 335px;}
+
+#btRechercher {position:absolute;
+               width: 250px;
+               height: 50px;
+               background-color: white;
+               color: #000000;
+               margin-top: -40px;
+               margin-inline: 100px;
+               border-radius : 3px}
+               
+ul {list-style-type: none;}
+
+#right {float: right;
+        padding-right: 850px;}
+
+#right li {padding-left: 35px;}
+
+#left {float: left;
+        margin-left: -50px;}
+
+#left li{padding-left: 35px;}
+               
+section{padding-top: 10px;}
+
+main img {width: 100%;
+          height: 100%;}
+
+article {display: inline-block;
+        width: 400px;
+            color: #242424;
+            padding: 10px 10px;}
+
+form{float: right;
+    padding-right: 70px;}
+
+.frame {float: left;
+        width: 90px;
+        height: 75px;
+        border: 2px solid rgb(0, 0, 0);
+        background: rgb(255, 255, 255); 
+        margin: auto;
+        padding: 15px 15px;}

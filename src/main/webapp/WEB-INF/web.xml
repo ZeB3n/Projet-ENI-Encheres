@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
 
+<display-name>Enchères-ENI</display-name>
+  <welcome-file-list>
+    <welcome-file>acceuil.jsp</welcome-file>
+  </welcome-file-list>  
   <servlet>
     <servlet-name>ServletAccueil</servlet-name>
     <servlet-class>fr.eni.projet.encheres.servlets.ServletAccueil</servlet-class>
@@ -17,22 +21,30 @@
     <servlet-name>ServletDeconnexion</servlet-name>
     <servlet-class>fr.eni.projet.encheres.servlets.ServletDeconnexion</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ServletProfil</servlet-name>
+    <servlet-class>fr.eni.projet.encheres.servlets.ServletProfil</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>ServletAccueil</servlet-name>
-    <url-pattern>/ServletAccueil</url-pattern>
+    <url-pattern>/Accueil</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ServletConnexion</servlet-name>
-    <url-pattern>/ServletConnexion</url-pattern>
+    <url-pattern>/Connexion</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ServletInscription</servlet-name>
-    <url-pattern>/ServletInscription</url-pattern>
+    <url-pattern>/Inscription</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ServletDeconnexion</servlet-name>
-    <url-pattern>/ServletDeconnexion</url-pattern>
+    <url-pattern>/Deconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletProfil</servlet-name>
+    <url-pattern>/MonProfil</url-pattern>
   </servlet-mapping>
   
 </web-app>

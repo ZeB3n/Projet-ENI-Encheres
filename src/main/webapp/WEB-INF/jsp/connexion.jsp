@@ -14,7 +14,7 @@
 </header>
     <body>
     <br>
-        <form method="post" action="${pageContext.servletContext.contextPath}/ServletConnexion">
+        <form method="post" action="${pageContext.servletContext.contextPath}/Connexion">
             <fieldset>
                 <legend>Connexion</legend>
                 <p>Vous pouvez vous connecter via ce formulaire.</p>
@@ -30,12 +30,12 @@
 				<br />
 				<div>
                 <input type="submit" value="Connexion" class="sansLabel" />
-            	<a href="${pageContext.servletContext.contextPath}/ServletInscription"> <input type="button" class="boutonForm" value="Créer un compte"> </a>
+            	<a href="${pageContext.servletContext.contextPath}/Inscription"> <input type="button" class="boutonForm" value="Créer un compte"> </a>
             	</div>
 
                 <c:if test="${erreur != null}">
 					<div>
-					  <strong>Erreur!</strong>
+					  <strong> Erreur !</strong>
 					  <ul>
 					  		<li>${erreur}</li>
 					  </ul>
