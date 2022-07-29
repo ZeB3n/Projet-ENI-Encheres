@@ -4,19 +4,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import fr.eni.projet.encheres.BusinessException;
 import fr.eni.projet.encheres.bo.Utilisateur;
 import fr.eni.projet.encheres.dal.ConnectionProvider;
 import fr.eni.projet.encheres.dal.UtilisateurDAO;
 
+/**
+ * Cette classe permet de faire la relation avec la BDD via des requêtes SQL
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ */
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	
 	// Requête SQL pour vérifier si les données rentrées par l'utilisateur lors de la connexion existent dans la BDD
 	private static final String SELECT_BY_PSEUDO="SELECT * FROM UTILISATEURS WHERE pseudo = ?";
+	
 	
 	@Override
 	public Utilisateur selectByPseudo(String pseudo) {
@@ -34,9 +37,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		return utilisateur;
 	}
 
+	
 	@Override
 	public void insererUtilisateur(Utilisateur utilisateur) throws BusinessException {
-		// TODO Auto-generated method stub
 		
 	}
 }

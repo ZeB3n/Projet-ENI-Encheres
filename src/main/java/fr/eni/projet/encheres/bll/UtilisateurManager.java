@@ -3,12 +3,18 @@ package fr.eni.projet.encheres.bll;
 import fr.eni.projet.encheres.bo.Utilisateur;
 import fr.eni.projet.encheres.dal.DAOFactory;
 
+/**
+ * 
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ * Cette classe permet de vérifier si une instance d'Utilisateur existe et d'en créer une s'il le faut
+ * Contient les méthodes de contrôle pour se connecter au site
+ * 
+ */
 public class UtilisateurManager {
 	
- //private UtilisateurDAO utilisateurDAO;
-	
-	// Singleton
-	// utilisateurManager = instance
+   	// Singleton
+   	// utilisateurManager = instance
 	private static UtilisateurManager utilisateurManager;
 	
 	private UtilisateurManager() {
@@ -21,6 +27,7 @@ public class UtilisateurManager {
 		return utilisateurManager;
 	}
 	
+	// Méthode permettant la connexion en vérifiant si le mdp existe dans la BDD et s'il est bien lié à un utilisateur
 	public Utilisateur connexion(String pseudo, String motDePasse) throws Exception {
 		validationPseudo(pseudo);
 		Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
@@ -30,6 +37,7 @@ public class UtilisateurManager {
 		return utilisateur;
 	}
 	
+	// Méthode permettant de vérifier si le pseudo existe dans la BDD et s'il est bien lié à un utilisateur
     private void validationPseudo(String pseudo) throws Exception {
     	Utilisateur utilisateur = DAOFactory.getUtilisateurDAO().selectByPseudo(pseudo);
     	if (utilisateur == null) {
@@ -37,6 +45,11 @@ public class UtilisateurManager {
     	}
 	}
 	
+    
+    
+    
+    
+    
 //	private void validerNomListe(String nomListe, BusinessException businessException) {
 //		if(nomListe==null || nomListe.trim().length()>50)
 //		{

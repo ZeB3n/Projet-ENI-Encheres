@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletProfil
+ * Cette servlet redirige vers la page du profil de l'utilisateur
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
  */
 @WebServlet("/ServletProfil")
 public class ServletProfil extends HttpServlet {

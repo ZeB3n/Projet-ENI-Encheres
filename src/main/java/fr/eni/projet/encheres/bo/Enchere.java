@@ -2,6 +2,11 @@ package fr.eni.projet.encheres.bo;
 
 import java.util.Date;
 
+/**
+ * Cette classe permet d'instancier un objet de type Enchère
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ */
 public class Enchere {
 	
 	private Date date_enchere;

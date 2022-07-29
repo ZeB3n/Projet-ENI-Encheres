@@ -1,4 +1,10 @@
 package fr.eni.projet.encheres.bo;
+
+/**
+ * Cette classe permet d'instancier un objet de type Retrait
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ */
 public class Retrait {
 private String rue;
 private String code_postal;

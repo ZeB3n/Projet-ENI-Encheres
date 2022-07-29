@@ -10,10 +10,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+/**
+ * Cette servlet redirige vers la page d'inscription
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ */
 public class ServletInscription extends HttpServlet {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID  = 1L;
 	public static final String ATT_USER		    = "utilisateur";
     public static final String ATT_FORM		    = "form";

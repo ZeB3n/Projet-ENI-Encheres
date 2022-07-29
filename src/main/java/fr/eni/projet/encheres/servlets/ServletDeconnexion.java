@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Servlet implementation class Deconnexion
+ * Cette servlet permet de se déconnecter puis de rediriger vers l'accueil
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
  */
 public class ServletDeconnexion extends HttpServlet {
     /**

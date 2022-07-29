@@ -2,6 +2,11 @@ package fr.eni.projet.encheres.bo;
 
 import java.sql.Date;
 
+/**
+ * Cette classe permet d'instancier un objet de type Article
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ */
 public class Article {
 	private int no_article;
 	private String nom_article;

@@ -1,6 +1,10 @@
 package fr.eni.projet.encheres.bll;
 
 /**
+ * 
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ * Cette classe permet de recenser les erreurs liées aux erreurs à la BLL.
  * Les codes disponibles sont entre 20000 et 29999
  */
 public abstract class CodesResultatBLL {

@@ -1,4 +1,10 @@
 package fr.eni.projet.encheres.bo;
+
+/**
+ * Cette classe permet d'instancier un objet de type Catégorie
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ */
 public class Categorie {
 private int no_categorie;
 private String libelle;

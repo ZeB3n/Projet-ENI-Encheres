@@ -1,6 +1,10 @@
 package fr.eni.projet.encheres.dal;
 
 /**
+ * 
+ * @author Groupe Benjamin-Sylvie-Goulven
+ *
+ * Cette classe permet de recenser les erreurs liées aux erreurs à la DAL.
  * Les codes disponibles sont entre 10000 et 19999
  */
 public abstract class CodesResultatDAL {
@@ -15,8 +19,4 @@ public abstract class CodesResultatDAL {
 	 */
 	public static final int INSERT_OBJET_ECHEC=10001;
 	
-	/**
-	 * Echec de la lecture des repas
-	 */
-	public static final int LECTURE_REPAS_ECHEC=10002;
 }
