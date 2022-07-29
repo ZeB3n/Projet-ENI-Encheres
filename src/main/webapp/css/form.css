@@ -2,7 +2,10 @@
 
 body {
 	padding-top: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 body, p, legend, label, input {

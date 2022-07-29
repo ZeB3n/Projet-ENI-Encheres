@@ -1,11 +1,16 @@
 @charset "UTF-8";
 body {padding-top: 10px;
     padding-left: 5px;
-    padding-right: 5px;
+    padding-right: 0px;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 1370px 650px;
     }
+    
+fieldset {
+    padding: 10px;
+    border: 1px #0568CD solid;
+}
 
 #titre {text-align: center;}
 
@@ -57,7 +62,14 @@ ul {list-style-type: none;}
         margin-left: -50px;}
 
 #left li{padding-left: 35px;}
-               
+
+article .rightart {float: left;
+        padding-right: 700px;}
+
+article .leftart {float: left;
+        margin-left: -10px;}
+
+              
 section{padding-top: 10px;}
 
 main img {width: 100%;
@@ -68,7 +80,7 @@ article {display: inline-block;
             color: #242424;
             padding: 10px 10px;}
 
-form{float: right;
+form{
     padding-right: 70px;}
 
 .frame {float: left;
